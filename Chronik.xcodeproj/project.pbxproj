@@ -7,380 +7,180 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		057D5F4C353CE0C8317D1565 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD7413ADBEFA9A0F283DB6 /* Dimensions.swift */; };
-		0A0B720D95A52CC5CF9D4C88 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884804B092B34D48FF4948EA /* Review.swift */; };
-		10D606313013913100C8F6EE /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606303013913100C8F6EE /* LoadableView.swift */; };
-		10D606343013990400C8F6EE /* AccomodationsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606333013990000C8F6EE /* AccomodationsNavigationView.swift */; };
-		10D606363013C2E300C8F6EE /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606353013C2DF00C8F6EE /* Navigator.swift */; };
-		10D606383013C65C00C8F6EE /* NavigatorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606373013C65A00C8F6EE /* NavigatorStub.swift */; };
-		10D6063A3014CFC400C8F6EE /* DefaultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606393014CFA600C8F6EE /* DefaultLoadingView.swift */; };
-		10D6063C3014D00500C8F6EE /* DefaultErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D6063B3014D00300C8F6EE /* DefaultErrorView.swift */; };
-		10D6063E3014D03900C8F6EE /* DefaultEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D6063D3014D03700C8F6EE /* DefaultEmptyView.swift */; };
-		10D606423014EC0D00C8F6EE /* RangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 10D606413014EC0D00C8F6EE /* RangeSlider */; };
-		10D606443015193E00C8F6EE /* RangeSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D606433015193D00C8F6EE /* RangeSelectionViewModel.swift */; };
-		10D6064630151A3B00C8F6EE /* RangeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D6064530151A3A00C8F6EE /* RangeSelectionView.swift */; };
-		144D8295205CD2019C3C87FE /* ChronikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00C581A83A462DB94AD4E5 /* ChronikApp.swift */; };
-		1A5D0FED9DC6FC7BFE5AC5E6 /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BEA920C06AA26BAB4BDAD34 /* ColorAssets.xcassets */; };
-		224AD4A189DE6CC3858639B2 /* AccommodationImageAccommodationImageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687ADD634FAF84FD81951FB1 /* AccommodationImageAccommodationImageDto.swift */; };
-		399CC6F66D38710C5DA7B7F1 /* SemanticPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28300E83DA94E56A8A4C99B6 /* SemanticPalette.swift */; };
-		468D258526423107FC88B79D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 293679631E7640F03AA6BCBB /* Assets.xcassets */; };
-		52F5016C251A6A6DC3618B36 /* AccommodationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F81FB93725C29D605056A /* AccommodationScreen.swift */; };
-		5CD093CB6E10D9378D0D28F1 /* AccomodationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195B15AB8C9B4850C0EA17E /* AccomodationsViewModelTests.swift */; };
-		76C90A37D564FD4B934DDC56 /* AccomodationImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC3E7252945682683B920B7 /* AccomodationImagesService.swift */; };
-		78BA0CE63414B22309613812 /* AccomodationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01BA7E147736944E0D928D /* AccomodationsViewModel.swift */; };
-		7D964BAFC53FC68722474B61 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E17D13CBDD2D9125F2A6C /* Theme.swift */; };
-		8313D95F146B3000E60F965B /* Amenity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C002C1AF718D5074F2994C /* Amenity.swift */; };
-		996AAE65126BB34D33EFA2E5 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAA40C1EC457111EC905810 /* Accommodation.swift */; };
-		A8E1FB243358F6BE58EE6F72 /* Decimal+toDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8D4574A719E4524360B03E /* Decimal+toDouble.swift */; };
-		AC0E6AB7C3C1D9A88407E166 /* AccommodationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FA0009FBB735D011A4EB3 /* AccommodationDto.swift */; };
-		B9BB57C8947450503FE0E9C6 /* AccommodationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D9B8308CA6E8DEFA85D4B /* AccommodationsView.swift */; };
-		BD7A57BF945A6A59E38C3B6A /* AccommodationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6D01F9FF5AC04B61F5B050 /* AccommodationServiceStub.swift */; };
-		BE1EEAB3803B6BDD1E767AC9 /* LoadableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C60A026AA9C7449A1EC17 /* LoadableViewModel.swift */; };
-		D674D0C31A092806BAB5E555 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7195CA119022151C51BB1E6 /* User.swift */; };
-		E6C879CE7E71D59F66A692F3 /* LoadableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED206E6A98C8CA1A4800660 /* LoadableCollectionView.swift */; };
-		EE545D66313B6A1ECE9E26A2 /* AccomodationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D429361E9AC6621AE9E7E5A /* AccomodationsService.swift */; };
-		EF59DB1F31B20397A9FB887B /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F91411218E217A71184945A /* Supabase.swift */; };
-		F19869F36FA55D00734AEE4D /* AccomodationImagesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A52BC8EF09F8AE91520D2C /* AccomodationImagesServiceImpl.swift */; };
-		F3AA8C67940ED4ED27440580 /* AccomodationImagesServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E995A79D342442206E88 /* AccomodationImagesServiceStub.swift */; };
-		F5D0DAF634850BFE81392E28 /* NavigatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B600458A47B9113D4761CC24 /* NavigatorImpl.swift */; };
-		F92409446BE6A4EAB9869502 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 9A4867AED244EA4C19B166A1 /* Supabase */; };
-		FE39C42E52EEE214045D4B31 /* AccomodationImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0581823C5C1910A088D41E /* AccomodationImage.swift */; };
-		FF86EF440E512C986016C183 /* AccomodationsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED08ED542A9E61EEFAB451C /* AccomodationsServiceImpl.swift */; };
+		16AE73D986AF43959BBEE19C /* NavigatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60601F51B5FE4215BEB388D /* NavigatorImpl.swift */; };
+		175CFD9B074AC42F3A658020 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD75D4767C20646CA8B8F04 /* Theme.swift */; };
+		44CE0F90F420B168402CD78D /* NavigatorStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F15FA4C106FCB54EA7CC5 /* NavigatorStub.swift */; };
+		4B6B14B9CBD30EC0D5CB66A0 /* DefaultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5EBE2ECE2CD2E4C082D21 /* DefaultLoadingView.swift */; };
+		6BB34173BD851688902A8652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4CF931B489EFF797E4B07D /* Assets.xcassets */; };
+		7155E30176927A57E3393FD8 /* LoadableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2D37616C9CE27684F9458 /* LoadableCollectionView.swift */; };
+		7289DE4A2209248D0D7959BE /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */; };
+		A57A59C54C662C4E90BC6C97 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49399698AC915C9C6611C8 /* LoadableView.swift */; };
+		AAF03E3972C59334FCD2E000 /* Decimal+toDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2C03AB3E5C21376EE7753 /* Decimal+toDouble.swift */; };
+		C469BEB0D7A4C9239F2686DE /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B40B967A880892BD37B94 /* Navigator.swift */; };
+		C8768EB2CB6AE095AD9AF62B /* LoadableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6755AA34C8CD52C01C427262 /* LoadableViewModel.swift */; };
+		C88CD8C71597E1A63C7FF954 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAA939F22D96C2CD64B346A /* Dimensions.swift */; };
+		CDF3303FD897325CC18CF206 /* SemanticPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10EB0AB070BF169DCF66F29 /* SemanticPalette.swift */; };
+		D5CDFE234D6AAAE5552138EF /* DefaultErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F60BB706A37BFE8B693C47 /* DefaultErrorView.swift */; };
+		DBC129491A9BDD56BC72F908 /* DefaultEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913DD49C17F0355AE6E2397 /* DefaultEmptyView.swift */; };
+		F1D8C5C39ECA79D438BE401E /* ChronikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A55E14A4D07D25657C6051B /* ChronikApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DC450E77E48E99876848660D /* PBXContainerItemProxy */ = {
+		87C52CB5093785B830020EA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 9E0102A6FAE950AE7DF97E14 /* Project object */;
+			containerPortal = AA6D38BE0B7801F239C5F8AA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3516B344BFB4ADE3F6DCF41A;
+			remoteGlobalIDString = 716773ED0AB3C598A43D8070;
 			remoteInfo = Chronik;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		108D9B8308CA6E8DEFA85D4B /* AccommodationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationsView.swift; sourceTree = "<group>"; };
-		10C002C1AF718D5074F2994C /* Amenity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amenity.swift; sourceTree = "<group>"; };
-		10D606303013913100C8F6EE /* LoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
-		10D606333013990000C8F6EE /* AccomodationsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationsNavigationView.swift; sourceTree = "<group>"; };
-		10D606353013C2DF00C8F6EE /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
-		10D606373013C65A00C8F6EE /* NavigatorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorStub.swift; sourceTree = "<group>"; };
-		10D606393014CFA600C8F6EE /* DefaultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadingView.swift; sourceTree = "<group>"; };
-		10D6063B3014D00300C8F6EE /* DefaultErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrorView.swift; sourceTree = "<group>"; };
-		10D6063D3014D03700C8F6EE /* DefaultEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEmptyView.swift; sourceTree = "<group>"; };
-		10D606433015193D00C8F6EE /* RangeSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSelectionViewModel.swift; sourceTree = "<group>"; };
-		10D6064530151A3A00C8F6EE /* RangeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSelectionView.swift; sourceTree = "<group>"; };
-		1C8D4574A719E4524360B03E /* Decimal+toDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+toDouble.swift"; sourceTree = "<group>"; };
-		28300E83DA94E56A8A4C99B6 /* SemanticPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticPalette.swift; sourceTree = "<group>"; };
-		293679631E7640F03AA6BCBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2D00C581A83A462DB94AD4E5 /* ChronikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikApp.swift; sourceTree = "<group>"; };
-		2EF338E6CB9CF12797708EE6 /* ChronikTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A2F81FB93725C29D605056A /* AccommodationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationScreen.swift; sourceTree = "<group>"; };
-		3ED206E6A98C8CA1A4800660 /* LoadableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableCollectionView.swift; sourceTree = "<group>"; };
-		469C60A026AA9C7449A1EC17 /* LoadableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModel.swift; sourceTree = "<group>"; };
-		4D429361E9AC6621AE9E7E5A /* AccomodationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationsService.swift; sourceTree = "<group>"; };
-		5BEA920C06AA26BAB4BDAD34 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
-		5ED3E995A79D342442206E88 /* AccomodationImagesServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationImagesServiceStub.swift; sourceTree = "<group>"; };
-		63AD7413ADBEFA9A0F283DB6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
-		64A52BC8EF09F8AE91520D2C /* AccomodationImagesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationImagesServiceImpl.swift; sourceTree = "<group>"; };
-		687ADD634FAF84FD81951FB1 /* AccommodationImageAccommodationImageDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationImageAccommodationImageDto.swift; sourceTree = "<group>"; };
-		7E3005FB5FB7E4E75A0ED1BF /* Chronik.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		884804B092B34D48FF4948EA /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
-		9EAA40C1EC457111EC905810 /* Accommodation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
-		9F91411218E217A71184945A /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
-		B600458A47B9113D4761CC24 /* NavigatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
-		CA4FA0009FBB735D011A4EB3 /* AccommodationDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationDto.swift; sourceTree = "<group>"; };
-		CD6D01F9FF5AC04B61F5B050 /* AccommodationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccommodationServiceStub.swift; sourceTree = "<group>"; };
-		D195B15AB8C9B4850C0EA17E /* AccomodationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationsViewModelTests.swift; sourceTree = "<group>"; };
-		DED08ED542A9E61EEFAB451C /* AccomodationsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationsServiceImpl.swift; sourceTree = "<group>"; };
-		EC0581823C5C1910A088D41E /* AccomodationImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationImage.swift; sourceTree = "<group>"; };
-		F37E17D13CBDD2D9125F2A6C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		F7195CA119022151C51BB1E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FDC3E7252945682683B920B7 /* AccomodationImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationImagesService.swift; sourceTree = "<group>"; };
-		FF01BA7E147736944E0D928D /* AccomodationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccomodationsViewModel.swift; sourceTree = "<group>"; };
+		021B40B967A880892BD37B94 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		0CAA939F22D96C2CD64B346A /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
+		34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		3B49399698AC915C9C6611C8 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		52F2C03AB3E5C21376EE7753 /* Decimal+toDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+toDouble.swift"; sourceTree = "<group>"; };
+		52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD75D4767C20646CA8B8F04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6755AA34C8CD52C01C427262 /* LoadableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModel.swift; sourceTree = "<group>"; };
+		6A55E14A4D07D25657C6051B /* ChronikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikApp.swift; sourceTree = "<group>"; };
+		6AA2D37616C9CE27684F9458 /* LoadableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableCollectionView.swift; sourceTree = "<group>"; };
+		9389601A155E4D9584856080 /* Chronik.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93F60BB706A37BFE8B693C47 /* DefaultErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrorView.swift; sourceTree = "<group>"; };
+		9BB5EBE2ECE2CD2E4C082D21 /* DefaultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadingView.swift; sourceTree = "<group>"; };
+		A10EB0AB070BF169DCF66F29 /* SemanticPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticPalette.swift; sourceTree = "<group>"; };
+		A14F15FA4C106FCB54EA7CC5 /* NavigatorStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorStub.swift; sourceTree = "<group>"; };
+		A60601F51B5FE4215BEB388D /* NavigatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
+		DD4CF931B489EFF797E4B07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E913DD49C17F0355AE6E2397 /* DefaultEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		A66D0A2E4CB19BB4C608F366 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F92409446BE6A4EAB9869502 /* Supabase in Frameworks */,
-				10D606423014EC0D00C8F6EE /* RangeSlider in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		07E731C1C02798390E17F5E3 /* Resources */ = {
+		024240EFE254124D9B990BD9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				293679631E7640F03AA6BCBB /* Assets.xcassets */,
-				5BEA920C06AA26BAB4BDAD34 /* ColorAssets.xcassets */,
+				DD4CF931B489EFF797E4B07D /* Assets.xcassets */,
+				34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */,
 			);
 			name = Resources;
 			path = Chronik/Resources;
 			sourceTree = "<group>";
 		};
-		09F2B2FCCF2F6CE90636DD7D /* Models */ = {
+		18786E733234153EBB4A414E /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				9389601A155E4D9584856080 /* Chronik.app */,
+				52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */,
 			);
-			path = Models;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		105A42E9302DF4F000314CAB /* Features */ = {
+		1CA374A42C2ABB16683E7370 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				105A42EC302DF6D200314CAB /* Accommodations */,
+				52F2C03AB3E5C21376EE7753 /* Decimal+toDouble.swift */,
 			);
-			path = Features;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		105A42EA302DF6B700314CAB /* Generic */ = {
+		29537D313A670F52C647838F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				395082CC4BC47254E7CD3CBE /* Extensions */,
-				105A42F2302DF7F200314CAB /* Presentation */,
-				D5855C77C9A3A63E8170F488 /* Theme */,
-				105A42F1302DF71100314CAB /* View */,
+				6A55E14A4D07D25657C6051B /* ChronikApp.swift */,
 			);
-			path = Generic;
+			path = App;
 			sourceTree = "<group>";
 		};
-		105A42EB302DF6BE00314CAB /* Shared */ = {
+		33E13C6FC542708718B6BE04 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		105A42EC302DF6D200314CAB /* Accommodations */ = {
-			isa = PBXGroup;
-			children = (
-				105A42F0302DF70400314CAB /* Domain */,
-				105A42EF302DF6FB00314CAB /* Resources */,
-				105A42EE302DF6E800314CAB /* Presentation */,
-				105A42ED302DF6E300314CAB /* View */,
-			);
-			path = Accommodations;
-			sourceTree = "<group>";
-		};
-		105A42ED302DF6E300314CAB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				10D6064530151A3A00C8F6EE /* RangeSelectionView.swift */,
-				10D606333013990000C8F6EE /* AccomodationsNavigationView.swift */,
-				108D9B8308CA6E8DEFA85D4B /* AccommodationsView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		105A42EE302DF6E800314CAB /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				10D606433015193D00C8F6EE /* RangeSelectionViewModel.swift */,
-				3A2F81FB93725C29D605056A /* AccommodationScreen.swift */,
-				FF01BA7E147736944E0D928D /* AccomodationsViewModel.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		105A42EF302DF6FB00314CAB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CA4FA0009FBB735D011A4EB3 /* AccommodationDto.swift */,
-				4D429361E9AC6621AE9E7E5A /* AccomodationsService.swift */,
-				DED08ED542A9E61EEFAB451C /* AccomodationsServiceImpl.swift */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		105A42F0302DF70400314CAB /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				EC0581823C5C1910A088D41E /* AccomodationImage.swift */,
-				9EAA40C1EC457111EC905810 /* Accommodation.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		105A42F1302DF71100314CAB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				10D6063D3014D03700C8F6EE /* DefaultEmptyView.swift */,
-				10D6063B3014D00300C8F6EE /* DefaultErrorView.swift */,
-				10D606393014CFA600C8F6EE /* DefaultLoadingView.swift */,
-				B600458A47B9113D4761CC24 /* NavigatorImpl.swift */,
-				3ED206E6A98C8CA1A4800660 /* LoadableCollectionView.swift */,
-				10D606303013913100C8F6EE /* LoadableView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		105A42F2302DF7F200314CAB /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				10D606353013C2DF00C8F6EE /* Navigator.swift */,
-				469C60A026AA9C7449A1EC17 /* LoadableViewModel.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		10D606403014EC0D00C8F6EE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		24F7171F864DD14A0E84B7AC /* Fakes */ = {
-			isa = PBXGroup;
-			children = (
-				10D606373013C65A00C8F6EE /* NavigatorStub.swift */,
-				CD6D01F9FF5AC04B61F5B050 /* AccommodationServiceStub.swift */,
-				5ED3E995A79D342442206E88 /* AccomodationImagesServiceStub.swift */,
+				A14F15FA4C106FCB54EA7CC5 /* NavigatorStub.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
 		};
-		255BBB53FFD4B67126B35DAF /* Tests */ = {
+		35DEC82E0B7B022EDCCA412A = {
 			isa = PBXGroup;
 			children = (
-				C371E38D582EEBC0FE415A15 /* Accomodations */,
-				24F7171F864DD14A0E84B7AC /* Fakes */,
+				024240EFE254124D9B990BD9 /* Resources */,
+				B36C962436D6ED13347C028D /* Sources */,
+				83D64EC499695936ED89654B /* Tests */,
+				18786E733234153EBB4A414E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52BB0BAE68D87DD261BF4C15 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E913DD49C17F0355AE6E2397 /* DefaultEmptyView.swift */,
+				93F60BB706A37BFE8B693C47 /* DefaultErrorView.swift */,
+				9BB5EBE2ECE2CD2E4C082D21 /* DefaultLoadingView.swift */,
+				6AA2D37616C9CE27684F9458 /* LoadableCollectionView.swift */,
+				3B49399698AC915C9C6611C8 /* LoadableView.swift */,
+				A60601F51B5FE4215BEB388D /* NavigatorImpl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69DB10DEFCA4D63E9B936BEA /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				1CA374A42C2ABB16683E7370 /* Extensions */,
+				E5319E4930A06ECA6ADCC7E8 /* Presentation */,
+				C16115DA574FB59B3008B265 /* Theme */,
+				52BB0BAE68D87DD261BF4C15 /* View */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		83D64EC499695936ED89654B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				33E13C6FC542708718B6BE04 /* Fakes */,
 			);
 			name = Tests;
 			path = Chronik/Tests;
 			sourceTree = "<group>";
 		};
-		395082CC4BC47254E7CD3CBE /* Extensions */ = {
+		B36C962436D6ED13347C028D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1C8D4574A719E4524360B03E /* Decimal+toDouble.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		46843FF0D1F84FF27E2B4663 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7E3005FB5FB7E4E75A0ED1BF /* Chronik.app */,
-				2EF338E6CB9CF12797708EE6 /* ChronikTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6D75D61C361278F322142D92 = {
-			isa = PBXGroup;
-			children = (
-				07E731C1C02798390E17F5E3 /* Resources */,
-				E5EBC3E0D910D50E98AFEB60 /* Sources */,
-				255BBB53FFD4B67126B35DAF /* Tests */,
-				10D606403014EC0D00C8F6EE /* Frameworks */,
-				46843FF0D1F84FF27E2B4663 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		7BDB04055DAA9F5EAC36AA0F /* App */ = {
-			isa = PBXGroup;
-			children = (
-				9F91411218E217A71184945A /* Supabase.swift */,
-				2D00C581A83A462DB94AD4E5 /* ChronikApp.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		BCFEF7345DDC13CFC3D2B1E9 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				D7EECDA8F0DEAD6CDDCFE732 /* AccomodationsImages */,
-				DC93BEC752916C9CFBA5B7A9 /* DTOs */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		C371E38D582EEBC0FE415A15 /* Accomodations */ = {
-			isa = PBXGroup;
-			children = (
-				D195B15AB8C9B4850C0EA17E /* AccomodationsViewModelTests.swift */,
-			);
-			path = Accomodations;
-			sourceTree = "<group>";
-		};
-		D5855C77C9A3A63E8170F488 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				63AD7413ADBEFA9A0F283DB6 /* Dimensions.swift */,
-				28300E83DA94E56A8A4C99B6 /* SemanticPalette.swift */,
-				F37E17D13CBDD2D9125F2A6C /* Theme.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
-		D7EECDA8F0DEAD6CDDCFE732 /* AccomodationsImages */ = {
-			isa = PBXGroup;
-			children = (
-				687ADD634FAF84FD81951FB1 /* AccommodationImageAccommodationImageDto.swift */,
-				FDC3E7252945682683B920B7 /* AccomodationImagesService.swift */,
-				64A52BC8EF09F8AE91520D2C /* AccomodationImagesServiceImpl.swift */,
-			);
-			path = AccomodationsImages;
-			sourceTree = "<group>";
-		};
-		DC93BEC752916C9CFBA5B7A9 /* DTOs */ = {
-			isa = PBXGroup;
-			children = (
-				10C002C1AF718D5074F2994C /* Amenity.swift */,
-				884804B092B34D48FF4948EA /* Review.swift */,
-				F7195CA119022151C51BB1E6 /* User.swift */,
-			);
-			path = DTOs;
-			sourceTree = "<group>";
-		};
-		E5EBC3E0D910D50E98AFEB60 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				105A42EB302DF6BE00314CAB /* Shared */,
-				105A42EA302DF6B700314CAB /* Generic */,
-				105A42E9302DF4F000314CAB /* Features */,
-				7BDB04055DAA9F5EAC36AA0F /* App */,
-				09F2B2FCCF2F6CE90636DD7D /* Models */,
-				BCFEF7345DDC13CFC3D2B1E9 /* Services */,
+				29537D313A670F52C647838F /* App */,
+				69DB10DEFCA4D63E9B936BEA /* Generic */,
 			);
 			name = Sources;
 			path = Chronik/Sources;
 			sourceTree = "<group>";
 		};
+		C16115DA574FB59B3008B265 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0CAA939F22D96C2CD64B346A /* Dimensions.swift */,
+				A10EB0AB070BF169DCF66F29 /* SemanticPalette.swift */,
+				5DD75D4767C20646CA8B8F04 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		E5319E4930A06ECA6ADCC7E8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6755AA34C8CD52C01C427262 /* LoadableViewModel.swift */,
+				021B40B967A880892BD37B94 /* Navigator.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E2A1E167DA5A2C8E1ECCAA9 /* ChronikTests */ = {
+		716773ED0AB3C598A43D8070 /* Chronik */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A1694F6295003E684802A1B /* Build configuration list for PBXNativeTarget "ChronikTests" */;
+			buildConfigurationList = 708EE59F0C0792EB3536DD5C /* Build configuration list for PBXNativeTarget "Chronik" */;
 			buildPhases = (
-				EDAFC437D4833A3D1054C870 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DCDBC2D61526B516DE77C584 /* PBXTargetDependency */,
-			);
-			name = ChronikTests;
-			packageProductDependencies = (
-			);
-			productName = ChronikTests;
-			productReference = 2EF338E6CB9CF12797708EE6 /* ChronikTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3516B344BFB4ADE3F6DCF41A /* Chronik */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A976F5E6299DA2BCF5EA412 /* Build configuration list for PBXNativeTarget "Chronik" */;
-			buildPhases = (
-				A845AD1A1211D93D7B95D2C4 /* Sources */,
-				BCDB3F0AE987329A9E8FF9A4 /* Resources */,
-				A66D0A2E4CB19BB4C608F366 /* Frameworks */,
+				820F6935BB624C10A1D86E8C /* Sources */,
+				4EA33671FFB6A18BC7782EFC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -388,120 +188,233 @@
 			);
 			name = Chronik;
 			packageProductDependencies = (
-				9A4867AED244EA4C19B166A1 /* Supabase */,
-				10D606413014EC0D00C8F6EE /* RangeSlider */,
 			);
 			productName = Chronik;
-			productReference = 7E3005FB5FB7E4E75A0ED1BF /* Chronik.app */;
+			productReference = 9389601A155E4D9584856080 /* Chronik.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E3A55FBF1CC833FCFD78DD96 /* ChronikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59F0BE12C06221CC389D381F /* Build configuration list for PBXNativeTarget "ChronikTests" */;
+			buildPhases = (
+				F1DBD1D6317682E325B79B4D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52D336C99B3D9D0DB9015CAB /* PBXTargetDependency */,
+			);
+			name = ChronikTests;
+			packageProductDependencies = (
+			);
+			productName = ChronikTests;
+			productReference = 52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9E0102A6FAE950AE7DF97E14 /* Project object */ = {
+		AA6D38BE0B7801F239C5F8AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+				};
 			};
-			buildConfigurationList = C2964EE67B926D40C6A0ADC4 /* Build configuration list for PBXProject "Chronik" */;
+			buildConfigurationList = E769DE5A5AF19F52C53210C8 /* Build configuration list for PBXProject "Chronik" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
 				en,
 			);
-			mainGroup = 6D75D61C361278F322142D92;
+			mainGroup = 35DEC82E0B7B022EDCCA412A;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				8393D4753E0207F07399698E /* XCRemoteSwiftPackageReference "supabase-swift" */,
-				10D6063F3014EB0A00C8F6EE /* XCRemoteSwiftPackageReference "Range-Slider" */,
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 46843FF0D1F84FF27E2B4663 /* Products */;
+			productRefGroup = 18786E733234153EBB4A414E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3516B344BFB4ADE3F6DCF41A /* Chronik */,
-				0E2A1E167DA5A2C8E1ECCAA9 /* ChronikTests */,
+				716773ED0AB3C598A43D8070 /* Chronik */,
+				E3A55FBF1CC833FCFD78DD96 /* ChronikTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BCDB3F0AE987329A9E8FF9A4 /* Resources */ = {
+		4EA33671FFB6A18BC7782EFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468D258526423107FC88B79D /* Assets.xcassets in Resources */,
-				1A5D0FED9DC6FC7BFE5AC5E6 /* ColorAssets.xcassets in Resources */,
+				6BB34173BD851688902A8652 /* Assets.xcassets in Resources */,
+				7289DE4A2209248D0D7959BE /* ColorAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A845AD1A1211D93D7B95D2C4 /* Sources */ = {
+		820F6935BB624C10A1D86E8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				996AAE65126BB34D33EFA2E5 /* Accommodation.swift in Sources */,
-				10D6063C3014D00500C8F6EE /* DefaultErrorView.swift in Sources */,
-				10D606313013913100C8F6EE /* LoadableView.swift in Sources */,
-				10D606443015193E00C8F6EE /* RangeSelectionViewModel.swift in Sources */,
-				AC0E6AB7C3C1D9A88407E166 /* AccommodationDto.swift in Sources */,
-				224AD4A189DE6CC3858639B2 /* AccommodationImageAccommodationImageDto.swift in Sources */,
-				10D6064630151A3B00C8F6EE /* RangeSelectionView.swift in Sources */,
-				B9BB57C8947450503FE0E9C6 /* AccommodationsView.swift in Sources */,
-				FE39C42E52EEE214045D4B31 /* AccomodationImage.swift in Sources */,
-				10D606363013C2E300C8F6EE /* Navigator.swift in Sources */,
-				76C90A37D564FD4B934DDC56 /* AccomodationImagesService.swift in Sources */,
-				F19869F36FA55D00734AEE4D /* AccomodationImagesServiceImpl.swift in Sources */,
-				EE545D66313B6A1ECE9E26A2 /* AccomodationsService.swift in Sources */,
-				FF86EF440E512C986016C183 /* AccomodationsServiceImpl.swift in Sources */,
-				78BA0CE63414B22309613812 /* AccomodationsViewModel.swift in Sources */,
-				8313D95F146B3000E60F965B /* Amenity.swift in Sources */,
-				10D6063A3014CFC400C8F6EE /* DefaultLoadingView.swift in Sources */,
-				52F5016C251A6A6DC3618B36 /* AccommodationScreen.swift in Sources */,
-				A8E1FB243358F6BE58EE6F72 /* Decimal+toDouble.swift in Sources */,
-				057D5F4C353CE0C8317D1565 /* Dimensions.swift in Sources */,
-				E6C879CE7E71D59F66A692F3 /* LoadableCollectionView.swift in Sources */,
-				10D606343013990400C8F6EE /* AccomodationsNavigationView.swift in Sources */,
-				BE1EEAB3803B6BDD1E767AC9 /* LoadableViewModel.swift in Sources */,
-				F5D0DAF634850BFE81392E28 /* NavigatorImpl.swift in Sources */,
-				0A0B720D95A52CC5CF9D4C88 /* Review.swift in Sources */,
-				10D6063E3014D03900C8F6EE /* DefaultEmptyView.swift in Sources */,
-				399CC6F66D38710C5DA7B7F1 /* SemanticPalette.swift in Sources */,
-				144D8295205CD2019C3C87FE /* ChronikApp.swift in Sources */,
-				EF59DB1F31B20397A9FB887B /* Supabase.swift in Sources */,
-				7D964BAFC53FC68722474B61 /* Theme.swift in Sources */,
-				D674D0C31A092806BAB5E555 /* User.swift in Sources */,
+				F1D8C5C39ECA79D438BE401E /* ChronikApp.swift in Sources */,
+				AAF03E3972C59334FCD2E000 /* Decimal+toDouble.swift in Sources */,
+				DBC129491A9BDD56BC72F908 /* DefaultEmptyView.swift in Sources */,
+				D5CDFE234D6AAAE5552138EF /* DefaultErrorView.swift in Sources */,
+				4B6B14B9CBD30EC0D5CB66A0 /* DefaultLoadingView.swift in Sources */,
+				C88CD8C71597E1A63C7FF954 /* Dimensions.swift in Sources */,
+				7155E30176927A57E3393FD8 /* LoadableCollectionView.swift in Sources */,
+				A57A59C54C662C4E90BC6C97 /* LoadableView.swift in Sources */,
+				C8768EB2CB6AE095AD9AF62B /* LoadableViewModel.swift in Sources */,
+				C469BEB0D7A4C9239F2686DE /* Navigator.swift in Sources */,
+				16AE73D986AF43959BBEE19C /* NavigatorImpl.swift in Sources */,
+				CDF3303FD897325CC18CF206 /* SemanticPalette.swift in Sources */,
+				175CFD9B074AC42F3A658020 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EDAFC437D4833A3D1054C870 /* Sources */ = {
+		F1DBD1D6317682E325B79B4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD7A57BF945A6A59E38C3B6A /* AccommodationServiceStub.swift in Sources */,
-				F3AA8C67940ED4ED27440580 /* AccomodationImagesServiceStub.swift in Sources */,
-				5CD093CB6E10D9378D0D28F1 /* AccomodationsViewModelTests.swift in Sources */,
-				10D606383013C65C00C8F6EE /* NavigatorStub.swift in Sources */,
+				44CE0F90F420B168402CD78D /* NavigatorStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DCDBC2D61526B516DE77C584 /* PBXTargetDependency */ = {
+		52D336C99B3D9D0DB9015CAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3516B344BFB4ADE3F6DCF41A /* Chronik */;
-			targetProxy = DC450E77E48E99876848660D /* PBXContainerItemProxy */;
+			target = 716773ED0AB3C598A43D8070 /* Chronik */;
+			targetProxy = 87C52CB5093785B830020EA0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		060732C61CE84861B7C8BA66 /* Debug */ = {
+		1BEDA07B9A2E0F6E329FDD2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3112DFC0DFC31D2A1E795745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		42A3B0A4843C50C3EB6C1FEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.ChronikTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chronik.app/Chronik";
+			};
+			name = Release;
+		};
+		8AC77E6027AC14898C0A4400 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1A4E176C58E97D72058424A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -564,7 +477,7 @@
 			};
 			name = Debug;
 		};
-		1D15B2F13EE75C175F2A6E11 /* Debug */ = {
+		CD1763A59BD26C16284BB67D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -581,190 +494,38 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chronik.app/Chronik";
 			};
 			name = Debug;
-		};
-		47317B7230E784F5A5DCC4B7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		71EEBB34C6E408DBAF8D0FD2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		829C58C4B2F4CF11B5FD2598 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FF036A135113D8739976BE5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.ChronikTests;
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.9;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chronik.app/Chronik";
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A976F5E6299DA2BCF5EA412 /* Build configuration list for PBXNativeTarget "Chronik" */ = {
+		59F0BE12C06221CC389D381F /* Build configuration list for PBXNativeTarget "ChronikTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				829C58C4B2F4CF11B5FD2598 /* Debug */,
-				47317B7230E784F5A5DCC4B7 /* Release */,
+				CD1763A59BD26C16284BB67D /* Debug */,
+				42A3B0A4843C50C3EB6C1FEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		5A1694F6295003E684802A1B /* Build configuration list for PBXNativeTarget "ChronikTests" */ = {
+		708EE59F0C0792EB3536DD5C /* Build configuration list for PBXNativeTarget "Chronik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1D15B2F13EE75C175F2A6E11 /* Debug */,
-				FF036A135113D8739976BE5D /* Release */,
+				8AC77E6027AC14898C0A4400 /* Debug */,
+				1BEDA07B9A2E0F6E329FDD2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C2964EE67B926D40C6A0ADC4 /* Build configuration list for PBXProject "Chronik" */ = {
+		E769DE5A5AF19F52C53210C8 /* Build configuration list for PBXProject "Chronik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				060732C61CE84861B7C8BA66 /* Debug */,
-				71EEBB34C6E408DBAF8D0FD2 /* Release */,
+				B1A4E176C58E97D72058424A /* Debug */,
+				3112DFC0DFC31D2A1E795745 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		10D6063F3014EB0A00C8F6EE /* XCRemoteSwiftPackageReference "Range-Slider" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jackvdp/Range-Slider.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		8393D4753E0207F07399698E /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase/supabase-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.53.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		10D606413014EC0D00C8F6EE /* RangeSlider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 10D6063F3014EB0A00C8F6EE /* XCRemoteSwiftPackageReference "Range-Slider" */;
-			productName = RangeSlider;
-		};
-		9A4867AED244EA4C19B166A1 /* Supabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8393D4753E0207F07399698E /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 9E0102A6FAE950AE7DF97E14 /* Project object */;
+	rootObject = AA6D38BE0B7801F239C5F8AA /* Project object */;
 }

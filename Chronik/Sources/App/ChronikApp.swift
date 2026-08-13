@@ -4,7 +4,9 @@ import SwiftUI
 struct ChronikApp: App {
     var body: some Scene {
         WindowGroup {
-            AccomodationsNavigationView()
+            NavigationStack {
+                DefaultEmptyView()
+            }
         }
     }
 }
