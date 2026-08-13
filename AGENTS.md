@@ -73,3 +73,17 @@ pre-formatted state objects.
 - Single app target; ideally each feature becomes its own target with a defined Swift API (protocols + entities).
 - No dependency-injection container yet — wiring is manual in `AccomodationsNavigationView`.
 - The `AccommodationDetail` screen currently renders only the header (title, location, price, rating); image gallery, amenities, host, and reviews are still to come.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live as GitHub issues via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Five canonical roles: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context — one root `CONTEXT.md`, ADRs in `docs/adr/`. See `docs/agents/domain.md`.
