@@ -24,8 +24,14 @@ struct ChronikRootView: View {
                     switch route {
                     case .addEntry:
                         AddEntryView(viewModel: AddEntryViewModelImpl(service: service, navigator: navigator))
-                    case .entryDetail:
-                        EntryDetailPlaceholderView()
+                    case .entryDetail(let id):
+                        EntryDetailView(
+                            viewModel: EntryDetailViewModelImpl(
+                                id: id,
+                                service: service,
+                                navigator: navigator
+                            )
+                        )
                     }
                 }
         }

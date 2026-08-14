@@ -106,7 +106,7 @@ final class WorkLogViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, W
             let row = EntryRow(
                 id: entry.id,
                 title: entry.title,
-                durationText: entry.duration.map { Self.format(duration: $0) },
+                durationText: entry.duration.map(DurationFormatter.string(from:)),
                 notes: entry.notes
             )
             if var last = sections.last, last.id == day {
@@ -123,9 +123,5 @@ final class WorkLogViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, W
             }
         }
         return sections
-    }
-
-    private static func format(duration: Decimal) -> String {
-        "\(duration) h"
     }
 }

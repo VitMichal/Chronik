@@ -28,7 +28,7 @@ struct LoadableView<State, Content: View>: View {
                 DefaultLoadingView()
     
             case .error:
-                DefaultErrorView(retryAction: { })
+                DefaultErrorView(retryAction: retryAction)
             
             case .success(let loadedState):
                 content(loadedState)
