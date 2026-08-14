@@ -65,21 +65,25 @@ public enum LoadableCollection<State> {
     }
 }
 
+@MainActor
 public protocol LoadableViewModel {
     associatedtype State: Identifiable
     var state: Loadable<State> { get set }
 }
 
+@MainActor
 @Observable
 public class LoadableViewModelImpl<State: Identifiable> {
     public var state: Loadable<State> = .loading
 }
 
+@MainActor
 public protocol LoadableCollectionViewModel {
     associatedtype State: Identifiable
     var state: LoadableCollection<State> { get }
 }
 
+@MainActor
 @Observable
 public class LoadableCollectionViewModelImpl<State: Identifiable> {
     public var state: LoadableCollection<State> = .loading

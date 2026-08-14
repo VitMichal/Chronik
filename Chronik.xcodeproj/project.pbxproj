@@ -317,8 +317,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = E769DE5A5AF19F52C53210C8 /* Build configuration list for PBXProject "Chronik" */;
 			developmentRegion = en;
