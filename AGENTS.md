@@ -17,35 +17,52 @@ duration, optional notes) and browse the **Work log** grouped by **Day**.
 - Regenerate the project after editing `project.yml`: `xcodegen generate` (requires `brew install xcodegen`).
 - No SPM packages are currently declared in `project.yml`; any new dependency must be declared there — xcodegen drops anything added directly to the `.xcodeproj`.
 
-## Architecture
 
+## Project Structure
+Sources/
+├── App/                        # @main entry point
+│   ├── ChronikApp.swift
+│   └── ChronikRootView.swift
+├── Generic/                    # reusable infrastructure - could be used also in another projects
+│   ├── Extensions/             # extensions to common data structures, helpers and syntax sugars
+│   ├── Presentation/           # viewmodels abstraction, generic formatters
+│   ├── Theme/                  # color theme, UI styling
+│   └── View/                   # view abstractions used by other views in features
+├── Features/                   # here are features
+│   └── <FeatureName>/          # Entries feature
+│       ├── Domain/             # Feature domain entities
+│       ├── Services/           # Data access services
+│       ├── Presentation/       # Presentation logic classes, ViewModels and Formatters
+│       └── View/               # View implementation
+└── Shared/                     # Shared feature across multiple features
+
+## Architecture
 MVVM with a protocol-based service layer and code-driven navigation. Data flows
 one way: **Views → ViewModels → Services → SwiftData**, and back through
 pre-formatted state objects.
 
-### Layers (`Chronik/Sources/`)
+### Views
+Views are made with SwiftUI. 
+- If view has content which needs to be loaded, use LoadableView or LoadableCollectionView, inside views body function, also use .onAppear to trigger viewModels load/fetch function to trigger loading
+- Views has viewModel const property with corresponding viewmodels protocol type
 
-- `App/` — `@main` entry point. Renders the root navigation view; currently a placeholder empty state until the Entry feature lands.
-- `Generic/` — reusable infrastructure:
-  - `View/` — state-driven views (`LoadableView`, `LoadableCollectionView`, `DefaultLoadingView/ErrorView/EmptyView`) and `NavigatorImpl`.
-  - `Theme/` — `Theme` static accessor exposing `pallete` (semantic colors from `ColorAssets.xcassets`) and `dimensions` (padding/radius scale).
-  - `Presentation/` — `Loadable`/`LoadableCollection` enums, base view-model classes, and the `Navigator` protocol.
-  - `Extensions/` — small pure helpers (e.g. `Decimal.toDouble()`).
-- Feature folders (planned: `Entries/`) — SwiftUI views only (no business logic), generic over view-model protocols.
-- `ViewModels/` — presentation logic, `@Observable` classes conforming to view-model protocols. Depend on service protocols and `Navigator`, never on SwiftUI.
-- `Models/` — plain public domain structs (`Entry`). This is the API boundary between services and view models.
-- `Services/` — data access.
+### ViewModels
+- Presentation layer consists of protocol named <FeatureName>ViewModel and its implementation named <FeatureName>ViewModelImpl, both holds property state. State can be Loadable<State>, LoadableCollection<State> or plain struct (if it is static content)
+- If viewmodel uses asynchronous service methods, viewmodels methods should be also asynchronous, avoid using Tasks
+- Use @Observable and @MainActor 
+- every viewmodel implementaion has its own tests 
+- Depend on service protocols and `Navigator`, never on SwiftUI.
+
+### `Services/` — data access.
   - Each service is a **public protocol + internal `*Impl` class** (e.g. `EntryService` / `EntryServiceImpl`).
   - **SwiftData is confined to service implementations only** — the `@Model` persistence class lives inside the service layer and is mapped to plain public structs; it must never leak into view models, views, or models.
 
 ### Navigation
-
 - View models trigger navigation by calling `navigator.navigateTo(Screen.route)` where `Screen` is a `Hashable` enum.
 - `NavigatorImpl<Screen>` wraps a SwiftUI `NavigationPath` (`@Published`) and is bound in the `NavigationStack`.
 - Routing (mapping screen enum → destination view) lives in the `navigationDestination(for:)` switch in the root navigation view.
 
 ### State handling
-
 - Async data is exposed as `Loadable<State>` / `LoadableCollection<State>` (`loading` / `success` / `error`).
 - `LoadableView` / `LoadableCollectionView` switch on state and render the default loading/error/empty views, wiring `retryAction` back to the view model.
 
