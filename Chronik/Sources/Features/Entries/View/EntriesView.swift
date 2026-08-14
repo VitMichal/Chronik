@@ -1,5 +1,5 @@
 //
-//  WorkLogView.swift
+//  EntriesView.swift
 //  Chronik
 //
 //  Created by Vít Míchal on 14.08.2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WorkLogView<VM: WorkLogViewModel>: View {
+struct EntriesView<VM: EntriesViewModel>: View {
     private let viewModel: VM
 
     init(viewModel: VM) {

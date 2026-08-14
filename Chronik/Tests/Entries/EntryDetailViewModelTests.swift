@@ -14,7 +14,7 @@ final class EntryDetailViewModelTests: XCTestCase {
     private var service: EntryServiceStub!
     private var navigator: NavigatorStub<EntryScreen>!
     private var calendar: Calendar!
-    private var formatter: DateFormatter!
+    private var formatter: DateFormatterStub!
     private var id: UUID!
 
     override func setUp() {
@@ -23,11 +23,7 @@ final class EntryDetailViewModelTests: XCTestCase {
         navigator = NavigatorStub<EntryScreen>()
         calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        formatter = DateFormatter()
-        formatter.calendar = calendar
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)!
-        formatter.dateFormat = "EEEE, d MMM yyyy"
+        formatter = DateFormatterStub()
         id = UUID()
     }
 
@@ -79,6 +75,7 @@ final class EntryDetailViewModelTests: XCTestCase {
     func testLoadRendersTitleDayDurationAndNotes() async {
         let sut = makeSut()
         service.entries = [makeEntry()]
+        formatter.stringsByDate = [makeDay(11, 8): "Tuesday, 11 Aug 2026"]
 
         await sut.load()
         await Task.yield()

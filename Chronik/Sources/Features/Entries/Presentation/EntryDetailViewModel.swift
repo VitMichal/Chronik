@@ -30,18 +30,14 @@ final class EntryDetailViewModelImpl: LoadableViewModelImpl<EntryDetailState>, E
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>
     private let calendar: Calendar
-    private let dayFormatter: DateFormatter
+    private let dayFormatter: any DateFormatter
 
     init(
         id: UUID,
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
-        dayFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE, d MMM yyyy"
-            return formatter
-        }()
+        dayFormatter: any DateFormatter = DateFormatterImpl(dateFormat: "EEEE, d MMM yyyy")
     ) {
         self.id = id
         self.service = service

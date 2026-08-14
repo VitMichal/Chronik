@@ -19,7 +19,7 @@ struct ChronikRootView: View {
 
     var body: some View {
         NavigationStack(path: $navigator.navigationPath) {
-            WorkLogView(viewModel: WorkLogViewModelImpl(service: service, navigator: navigator))
+            EntriesView(viewModel: EntriesViewModelImpl(service: service, navigator: navigator))
                 .navigationDestination(for: EntryScreen.self) { route in
                     switch route {
                     case .addEntry:

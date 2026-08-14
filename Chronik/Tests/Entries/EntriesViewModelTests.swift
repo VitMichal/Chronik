@@ -1,5 +1,5 @@
 //
-//  WorkLogViewModelTests.swift
+//  EntriesViewModelTests.swift
 //  Chronik
 //
 //  Created by Vít Míchal on 14.08.2026.
@@ -9,12 +9,12 @@ import XCTest
 @testable import Chronik
 
 @MainActor
-final class WorkLogViewModelTests: XCTestCase {
+final class EntriesViewModelTests: XCTestCase {
 
     private var service: EntryServiceStub!
     private var navigator: NavigatorStub<EntryScreen>!
     private var calendar: Calendar!
-    private var formatter: DateFormatter!
+    private var formatter: DateFormatterStub!
 
     override func setUp() {
         super.setUp()
@@ -22,15 +22,11 @@ final class WorkLogViewModelTests: XCTestCase {
         navigator = NavigatorStub<EntryScreen>()
         calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
-        formatter = DateFormatter()
-        formatter.calendar = calendar
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)!
-        formatter.dateFormat = "EEEE, d MMM"
+        formatter = DateFormatterStub()
     }
 
-    private func makeSut() -> WorkLogViewModelImpl {
-        WorkLogViewModelImpl(
+    private func makeSut() -> EntriesViewModelImpl {
+        EntriesViewModelImpl(
             service: service,
             navigator: navigator,
             calendar: calendar,
@@ -78,6 +74,11 @@ final class WorkLogViewModelTests: XCTestCase {
 
     func testLoadOrdersDaysNewestFirst() async {
         let sut = makeSut()
+        formatter.stringsByDate = [
+            makeDay(10, 8): "Monday, 10 Aug",
+            makeDay(11, 8): "Tuesday, 11 Aug",
+            makeDay(12, 8): "Wednesday, 12 Aug"
+        ]
         service.entries = [
             makeEntry(day: makeDay(10, 8, hour: 9), createdAt: makeDay(10, 8, hour: 9), title: "oldest"),
             makeEntry(day: makeDay(12, 8, hour: 9), createdAt: makeDay(12, 8, hour: 9), title: "newest"),
@@ -147,6 +148,10 @@ final class WorkLogViewModelTests: XCTestCase {
 
     func testLoadOrdersDaysAcrossMidnightBoundary() async {
         let sut = makeSut()
+        formatter.stringsByDate = [
+            makeDay(11, 8): "Tuesday, 11 Aug",
+            makeDay(12, 8): "Wednesday, 12 Aug"
+        ]
         service.entries = [
             makeEntry(day: makeDay(11, 8, hour: 23), createdAt: makeDay(11, 8, hour: 23), title: "Aug 11 late"),
             makeEntry(day: makeDay(12, 8, hour: 0), createdAt: makeDay(12, 8, hour: 0), title: "Aug 12 early")

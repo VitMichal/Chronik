@@ -1,5 +1,5 @@
 //
-//  WorkLogViewModel.swift
+//  EntriesViewModel.swift
 //  Chronik
 //
 //  Created by Vít Míchal on 14.08.2026.
@@ -22,7 +22,7 @@ struct DaySection: Identifiable, Equatable {
 }
 
 @MainActor
-protocol WorkLogViewModel: LoadableCollectionViewModel where State == DaySection {
+protocol EntriesViewModel: LoadableCollectionViewModel where State == DaySection {
     var state: LoadableCollection<DaySection> { get }
     func load() async
     func delete(_ id: UUID) async 
@@ -33,22 +33,18 @@ protocol WorkLogViewModel: LoadableCollectionViewModel where State == DaySection
 
 @MainActor
 @Observable
-final class WorkLogViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, WorkLogViewModel {
+final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, EntriesViewModel {
 
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>
     private let calendar: Calendar
-    private let dayFormatter: DateFormatter
+    private let dayFormatter: any DateFormatter
 
     init(
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
-        dayFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "EEEE, d MMM"
-            return formatter
-        }()
+        dayFormatter: any DateFormatter = DateFormatterImpl(dateFormat: "EEEE, d MMM")
     ) {
         self.service = service
         self.navigator = navigator
@@ -90,7 +86,7 @@ final class WorkLogViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, W
     private static func group(
         _ entries: [Entry],
         calendar: Calendar,
-        dayFormatter: DateFormatter
+        dayFormatter: any DateFormatter
     ) -> [DaySection] {
         let sorted = entries.sorted { lhs, rhs in
             let lhsDay = calendar.startOfDay(for: lhs.day)
