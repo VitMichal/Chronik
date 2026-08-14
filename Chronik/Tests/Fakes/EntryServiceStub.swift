@@ -14,9 +14,11 @@ final class EntryServiceStub: EntryService {
     var entries: [Entry] = []
     var error: Error?
     private(set) var deleteCallCount = 0
+    private(set) var addedEntries: [Entry] = []
 
     func add(_ entry: Entry) async throws {
         if let error { throw error }
+        addedEntries.append(entry)
         entries.append(entry)
     }
 

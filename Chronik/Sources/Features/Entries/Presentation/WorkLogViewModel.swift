@@ -27,6 +27,7 @@ protocol WorkLogViewModelProtocol {
     func load() async
     func delete(_ id: UUID) async 
     func select(_ id: UUID)
+    func openAddEntry()
 }
 
 @MainActor
@@ -57,7 +58,6 @@ final class WorkLogViewModel: WorkLogViewModelProtocol {
     }
 
     func load() async {
-        print("xxx load() ")
         await refresh()
     }
 
@@ -74,12 +74,15 @@ final class WorkLogViewModel: WorkLogViewModelProtocol {
         navigator.navigateTo(.entryDetail(id))
     }
 
+    func openAddEntry() {
+        navigator.navigateTo(.addEntry)
+    }
+
     @MainActor
     private func refresh() async {
         do {
             let entries = try await service.fetchAll()
             state = .success(Self.group(entries, calendar: calendar, dayFormatter: dayFormatter))
-            print("xxx state: \(String(describing: state))")
         } catch {
             state = .error(error)
         }

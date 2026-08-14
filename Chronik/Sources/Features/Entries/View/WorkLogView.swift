@@ -38,6 +38,15 @@ struct WorkLogView<VM: WorkLogViewModelProtocol>: View {
             .listStyle(.insetGrouped)
         }
         .navigationTitle("Work log")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    viewModel.openAddEntry()
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+        }
         .onAppear { Task { await viewModel.load() } }
     }
 }

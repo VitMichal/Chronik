@@ -67,7 +67,7 @@ final class WorkLogViewModelTests: XCTestCase {
             makeEntry(day: makeDay(12, 8, hour: 9), createdAt: makeDay(12, 8, hour: 9), title: "PR review")
         ]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -84,7 +84,7 @@ final class WorkLogViewModelTests: XCTestCase {
             makeEntry(day: makeDay(11, 8, hour: 9), createdAt: makeDay(11, 8, hour: 9), title: "middle")
         ]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -99,7 +99,7 @@ final class WorkLogViewModelTests: XCTestCase {
             makeEntry(day: day, createdAt: makeDay(11, 8, hour: 17), title: "evening")
         ]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -115,7 +115,7 @@ final class WorkLogViewModelTests: XCTestCase {
             makeEntry(day: makeDay(11, 8, hour: 23), createdAt: makeDay(11, 8, hour: 23), title: "late night")
         ]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -126,7 +126,7 @@ final class WorkLogViewModelTests: XCTestCase {
     func testLoadYieldsEmptySuccessWhenNoEntries() async {
         let sut = makeSut()
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -137,7 +137,7 @@ final class WorkLogViewModelTests: XCTestCase {
         let sut = makeSut()
         service.error = StateError.general
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         guard case .error = sut.state else {
@@ -152,7 +152,7 @@ final class WorkLogViewModelTests: XCTestCase {
             makeEntry(day: makeDay(12, 8, hour: 0), createdAt: makeDay(12, 8, hour: 0), title: "Aug 12 early")
         ]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
 
         let sections = sections(of: sut.state)
@@ -166,11 +166,11 @@ final class WorkLogViewModelTests: XCTestCase {
         let kept = makeEntry(id: UUID(), day: makeDay(11, 8, hour: 10), createdAt: makeDay(11, 8, hour: 10), title: "kept")
         service.entries = [kept, doomed]
 
-        sut.load()
+        await sut.load()
         await Task.yield()
         XCTAssertEqual(service.deleteCallCount, 0)
 
-        sut.delete(doomed.id)
+        await sut.delete(doomed.id)
         await Task.yield()
 
         XCTAssertEqual(service.deleteCallCount, 1)
@@ -185,5 +185,13 @@ final class WorkLogViewModelTests: XCTestCase {
         sut.select(id)
 
         XCTAssertEqual(navigator.lastScreen, .entryDetail(id))
+    }
+
+    func testOpenAddEntryNavigatesToAddEntryForm() {
+        let sut = makeSut()
+
+        sut.openAddEntry()
+
+        XCTAssertEqual(navigator.lastScreen, .addEntry)
     }
 }

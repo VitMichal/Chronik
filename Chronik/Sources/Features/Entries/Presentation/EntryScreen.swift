@@ -8,5 +8,6 @@
 import Foundation
 
 enum EntryScreen: Hashable {
+    case addEntry
     case entryDetail(UUID)
 }

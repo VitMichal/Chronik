@@ -9,19 +9,23 @@ import SwiftUI
 
 struct ChronikRootView: View {
     @StateObject private var navigator: NavigatorImpl<EntryScreen>
-    @State private var viewModel: WorkLogViewModel
+    @State private var workLogViewModel: WorkLogViewModel
+    @State private var addEntryViewModel: AddEntryViewModel
 
     init(service: EntryService) {
         let navigator = NavigatorImpl<EntryScreen>()
         _navigator = StateObject(wrappedValue: navigator)
-        _viewModel = State(initialValue: WorkLogViewModel(service: service, navigator: navigator))
+        _workLogViewModel = State(initialValue: WorkLogViewModel(service: service, navigator: navigator))
+        _addEntryViewModel = State(initialValue: AddEntryViewModel(service: service, navigator: navigator))
     }
 
     var body: some View {
         NavigationStack(path: $navigator.navigationPath) {
-            WorkLogView(viewModel: viewModel)
+            WorkLogView(viewModel: workLogViewModel)
                 .navigationDestination(for: EntryScreen.self) { route in
                     switch route {
+                    case .addEntry:
+                        AddEntryView(viewModel: addEntryViewModel)
                     case .entryDetail:
                         EntryDetailPlaceholderView()
                     }
