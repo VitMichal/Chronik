@@ -32,13 +32,13 @@ final class DateFormatterTests: XCTestCase {
     }
 
     func testFormatsDayWithoutYear() {
-        let sut = DateFormatterImpl(dateFormat: "EEEE, d MMM", calendar: calendar, locale: locale, timeZone: timeZone)
+        let sut = DayHeaderDateFormatter(calendar: calendar, locale: locale, timeZone: timeZone)
 
         XCTAssertEqual(sut.string(from: makeDay(11, 8)), "Tuesday, 11 Aug")
     }
 
     func testFormatsDayWithYear() {
-        let sut = DateFormatterImpl(dateFormat: "EEEE, d MMM yyyy", calendar: calendar, locale: locale, timeZone: timeZone)
+        let sut = EntryDayDateFormatter(calendar: calendar, locale: locale, timeZone: timeZone)
 
         XCTAssertEqual(sut.string(from: makeDay(11, 8)), "Tuesday, 11 Aug 2026")
     }

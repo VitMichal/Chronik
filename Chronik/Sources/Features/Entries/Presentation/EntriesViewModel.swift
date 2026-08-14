@@ -44,7 +44,7 @@ final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, E
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
-        dayFormatter: any DateFormatter = DateFormatterImpl(dateFormat: "EEEE, d MMM")
+        dayFormatter: any DateFormatter = DayHeaderDateFormatter()
     ) {
         self.service = service
         self.navigator = navigator

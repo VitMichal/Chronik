@@ -22,7 +22,9 @@
 		6BB34173BD851688902A8652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4CF931B489EFF797E4B07D /* Assets.xcassets */; };
 		7155E30176927A57E3393FD8 /* LoadableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2D37616C9CE27684F9458 /* LoadableCollectionView.swift */; };
 		7289DE4A2209248D0D7959BE /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */; };
+		7F4A09402FED29B2AF04F9B3 /* DayHeaderDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC218D0B9A9E5E5EA724BA0 /* DayHeaderDateFormatter.swift */; };
 		8E049D6E704E9437B6D1585F /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8314015EE549BED4CB26ED7A /* DateFormatterTests.swift */; };
+		8ECA0F7CF9FB3C935FD2F03F /* EntryDayDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38C0347178CE9991BF9EEC0 /* EntryDayDateFormatter.swift */; };
 		9F117B6BD51E1451B985383F /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675B5E8D619B441399C9425F /* EntryDetailView.swift */; };
 		A57A59C54C662C4E90BC6C97 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B49399698AC915C9C6611C8 /* LoadableView.swift */; };
 		AAF03E3972C59334FCD2E000 /* Decimal+toDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F2C03AB3E5C21376EE7753 /* Decimal+toDouble.swift */; };
@@ -89,11 +91,13 @@
 		A60601F51B5FE4215BEB388D /* NavigatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorImpl.swift; sourceTree = "<group>"; };
 		BAAE29E6F6AC844788EF1736 /* EntriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModelTests.swift; sourceTree = "<group>"; };
 		BD13540903267B21CA4D5B05 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		CBC218D0B9A9E5E5EA724BA0 /* DayHeaderDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderDateFormatter.swift; sourceTree = "<group>"; };
 		CDC551E2A17EE908954B2644 /* EntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryService.swift; sourceTree = "<group>"; };
 		D3CB713688D4A5C17D972E93 /* AddEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryViewModel.swift; sourceTree = "<group>"; };
 		DD4CF931B489EFF797E4B07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E913DD49C17F0355AE6E2397 /* DefaultEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultEmptyView.swift; sourceTree = "<group>"; };
 		F11283F475915EC9E7655A0D /* EntryDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewModelTests.swift; sourceTree = "<group>"; };
+		F38C0347178CE9991BF9EEC0 /* EntryDayDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDayDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -289,7 +293,9 @@
 			isa = PBXGroup;
 			children = (
 				86455D711EF4984CE3D01038 /* DateFormatter.swift */,
+				CBC218D0B9A9E5E5EA724BA0 /* DayHeaderDateFormatter.swift */,
 				0EA43318CCAAA35B61F16BB0 /* DurationFormatter.swift */,
+				F38C0347178CE9991BF9EEC0 /* EntryDayDateFormatter.swift */,
 				6755AA34C8CD52C01C427262 /* LoadableViewModel.swift */,
 				021B40B967A880892BD37B94 /* Navigator.swift */,
 			);
@@ -388,6 +394,7 @@
 				F1D8C5C39ECA79D438BE401E /* ChronikApp.swift in Sources */,
 				EB49ACF33088AFD32DE9E2E4 /* ChronikRootView.swift in Sources */,
 				4013AA77547981B6C3A56D97 /* DateFormatter.swift in Sources */,
+				7F4A09402FED29B2AF04F9B3 /* DayHeaderDateFormatter.swift in Sources */,
 				AAF03E3972C59334FCD2E000 /* Decimal+toDouble.swift in Sources */,
 				DBC129491A9BDD56BC72F908 /* DefaultEmptyView.swift in Sources */,
 				D5CDFE234D6AAAE5552138EF /* DefaultErrorView.swift in Sources */,
@@ -397,6 +404,7 @@
 				5B5F25BA812C7B64518554A3 /* EntriesView.swift in Sources */,
 				CC509ABC0344D47825154B78 /* EntriesViewModel.swift in Sources */,
 				B80FA7D4645C0012E6776F67 /* Entry.swift in Sources */,
+				8ECA0F7CF9FB3C935FD2F03F /* EntryDayDateFormatter.swift in Sources */,
 				9F117B6BD51E1451B985383F /* EntryDetailView.swift in Sources */,
 				E8E5E9C17AAC0283628BE7E8 /* EntryDetailViewModel.swift in Sources */,
 				52477D78A03C3F4F42DF1F1C /* EntryScreen.swift in Sources */,

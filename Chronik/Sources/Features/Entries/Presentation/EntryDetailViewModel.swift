@@ -37,7 +37,7 @@ final class EntryDetailViewModelImpl: LoadableViewModelImpl<EntryDetailState>, E
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
-        dayFormatter: any DateFormatter = DateFormatterImpl(dateFormat: "EEEE, d MMM yyyy")
+        dayFormatter: any DateFormatter = EntryDayDateFormatter()
     ) {
         self.id = id
         self.service = service
