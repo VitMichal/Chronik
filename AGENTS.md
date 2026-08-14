@@ -48,8 +48,10 @@ Views are made with SwiftUI.
 
 ### ViewModels
 - Presentation layer consists of protocol named <FeatureName>ViewModel and its implementation named <FeatureName>ViewModelImpl, both holds property state. State can be Loadable<State>, LoadableCollection<State> or plain struct (if it is static content)
+- protocol named <FeatureName>ViewModel inherits from LoadableCollectionViewModel or LoadableViewModel if it provides state which needs to be loaded
+- protocol named <FeatureName>ViewModel is @MainActor
+- implementation of viewmodel named <FeatureName>ViewModelImpl, implements protocol <FeatureName>ViewModel and inherits LoadableCollectionViewModelImpl<StateType> or LoadableViewModelImpl<StateType>, and uses @MainActor and @Observable   
 - If viewmodel uses asynchronous service methods, viewmodels methods should be also asynchronous, avoid using Tasks
-- Use @Observable and @MainActor 
 - every viewmodel implementaion has its own tests 
 - Depend on service protocols and `Navigator`, never on SwiftUI.
 
