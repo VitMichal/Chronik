@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WorkLogView<VM: WorkLogViewModelProtocol>: View {
+struct WorkLogView<VM: WorkLogViewModel>: View {
     private let viewModel: VM
 
     init(viewModel: VM) {

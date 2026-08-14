@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddEntryView<VM: AddEntryViewModelProtocol>: View {
+struct AddEntryView<VM: AddEntryViewModel>: View {
     private let viewModel: VM
 
     init(viewModel: VM) {

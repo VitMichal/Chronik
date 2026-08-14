@@ -29,8 +29,8 @@ final class WorkLogViewModelTests: XCTestCase {
         formatter.dateFormat = "EEEE, d MMM"
     }
 
-    private func makeSut() -> WorkLogViewModel {
-        WorkLogViewModel(
+    private func makeSut() -> WorkLogViewModelImpl {
+        WorkLogViewModelImpl(
             service: service,
             navigator: navigator,
             calendar: calendar,

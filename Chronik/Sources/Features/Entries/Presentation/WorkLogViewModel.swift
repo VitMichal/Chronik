@@ -22,7 +22,7 @@ struct DaySection: Identifiable, Equatable {
 }
 
 @MainActor
-protocol WorkLogViewModelProtocol {
+protocol WorkLogViewModel: LoadableCollectionViewModel where State == DaySection {
     var state: LoadableCollection<DaySection> { get }
     func load() async
     func delete(_ id: UUID) async 
@@ -30,11 +30,10 @@ protocol WorkLogViewModelProtocol {
     func openAddEntry()
 }
 
+
 @MainActor
 @Observable
-final class WorkLogViewModel: WorkLogViewModelProtocol {
-
-    var state: LoadableCollection<DaySection> = .loading
+final class WorkLogViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, WorkLogViewModel {
 
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>

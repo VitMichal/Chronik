@@ -25,8 +25,8 @@ final class AddEntryViewModelTests: XCTestCase {
         now = makeDay(14, 8)
     }
 
-    private func makeSut() -> AddEntryViewModel {
-        AddEntryViewModel(
+    private func makeSut() -> AddEntryViewModelImpl {
+        AddEntryViewModelImpl(
             service: service,
             navigator: navigator,
             calendar: calendar,

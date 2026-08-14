@@ -17,7 +17,7 @@ struct AddEntryState {
 }
 
 @MainActor
-protocol AddEntryViewModelProtocol {
+protocol AddEntryViewModel {
     var state: AddEntryState { get }
     var isSaveEnabled: Bool { get }
     func updateTitle(_ text: String)
@@ -32,7 +32,7 @@ protocol AddEntryViewModelProtocol {
 
 @MainActor
 @Observable
-final class AddEntryViewModel: AddEntryViewModelProtocol {
+final class AddEntryViewModelImpl: AddEntryViewModel {
 
     var state: AddEntryState
 
