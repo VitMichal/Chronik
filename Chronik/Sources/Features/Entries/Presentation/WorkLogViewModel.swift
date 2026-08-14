@@ -22,10 +22,10 @@ struct DaySection: Identifiable, Equatable {
 }
 
 @MainActor
-protocol WorkLogViewModelProtocol: AnyObject {
+protocol WorkLogViewModelProtocol {
     var state: LoadableCollection<DaySection> { get }
-    func load()
-    func delete(_ id: UUID)
+    func load() async
+    func delete(_ id: UUID) async 
     func select(_ id: UUID)
 }
 
@@ -56,21 +56,17 @@ final class WorkLogViewModel: WorkLogViewModelProtocol {
         self.dayFormatter = dayFormatter
     }
 
-    func load() {
-        state = .loading
-        Task {
-            await refresh()
-        }
+    func load() async {
+        print("xxx load() ")
+        await refresh()
     }
 
-    func delete(_ id: UUID) {
-        Task {
-            do {
-                try await service.delete(by: id)
-                await refresh()
-            } catch {
-                state = .error(error)
-            }
+    func delete(_ id: UUID) async {
+        do {
+            try await service.delete(by: id)
+            await refresh()
+        } catch {
+            state = .error(error)
         }
     }
 
@@ -83,6 +79,7 @@ final class WorkLogViewModel: WorkLogViewModelProtocol {
         do {
             let entries = try await service.fetchAll()
             state = .success(Self.group(entries, calendar: calendar, dayFormatter: dayFormatter))
+            print("xxx state: \(String(describing: state))")
         } catch {
             state = .error(error)
         }

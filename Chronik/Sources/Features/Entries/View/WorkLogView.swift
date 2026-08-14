@@ -17,7 +17,7 @@ struct WorkLogView<VM: WorkLogViewModelProtocol>: View {
     var body: some View {
         LoadableCollectionView(
             viewModel.state,
-            retryAction: { viewModel.load() }
+            retryAction: { Task { await viewModel.load() } }
         ) { sections in
             List {
                 ForEach(sections) { section in
@@ -29,15 +29,16 @@ struct WorkLogView<VM: WorkLogViewModelProtocol>: View {
                                 EntryRowView(entry: entry)
                             }
                         }
-                        .onDelete { indexSet in
-                            indexSet.forEach { viewModel.delete(section.entries[$0].id) }
-                        }
+//                        .onDelete { indexSet in
+//                            indexSet.forEach { Task { await viewModel.delete(section.entries[$0].id) } }
+//                        }
                     }
                 }
             }
             .listStyle(.insetGrouped)
         }
         .navigationTitle("Work log")
+        .onAppear { Task { await viewModel.load() } }
     }
 }
 

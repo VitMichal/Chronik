@@ -59,14 +59,14 @@
 		4508E0472808923894EAE09B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		4D6A4B67DB695FA0B62BEF9C /* EntryServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryServiceStub.swift; sourceTree = "<group>"; };
 		52F2C03AB3E5C21376EE7753 /* Decimal+toDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+toDouble.swift"; sourceTree = "<group>"; };
-		52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DD75D4767C20646CA8B8F04 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6755AA34C8CD52C01C427262 /* LoadableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModel.swift; sourceTree = "<group>"; };
 		6A55E14A4D07D25657C6051B /* ChronikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikApp.swift; sourceTree = "<group>"; };
 		6AA2D37616C9CE27684F9458 /* LoadableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableCollectionView.swift; sourceTree = "<group>"; };
 		7D6473BDB320EDEF58302A9C /* EntryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryServiceTests.swift; sourceTree = "<group>"; };
 		83136F2EDE4B74B55006C129 /* WorkLogViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkLogViewModelTests.swift; sourceTree = "<group>"; };
-		9389601A155E4D9584856080 /* Chronik.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9389601A155E4D9584856080 /* Chronik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F60BB706A37BFE8B693C47 /* DefaultErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrorView.swift; sourceTree = "<group>"; };
 		94F21E1DB038D77E368E514D /* EntryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreen.swift; sourceTree = "<group>"; };
 		9BB5EBE2ECE2CD2E4C082D21 /* DefaultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoadingView.swift; sourceTree = "<group>"; };
@@ -89,6 +89,15 @@
 			path = Chronik/Resources;
 			sourceTree = "<group>";
 		};
+		105A42F4302F369B00314CAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E8E99F771BAB7EAA093867E /* WorkLogView.swift */,
+				33D07FF1DF82189C2294EAA2 /* EntryDetailPlaceholderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		18786E733234153EBB4A414E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,21 +115,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		2381689439C9A7894387D971 /* ViewModels */ = {
+		2381689439C9A7894387D971 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				94F21E1DB038D77E368E514D /* EntryScreen.swift */,
 				C11A2F391B99DB8643A519C2 /* WorkLogViewModel.swift */,
 			);
-			path = ViewModels;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
-		25FFD262FE629F7DEBD24674 /* Models */ = {
+		25FFD262FE629F7DEBD24674 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
 				4508E0472808923894EAE09B /* Entry.swift */,
 			);
-			path = Models;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		29537D313A670F52C647838F /* App */ = {
@@ -187,8 +196,10 @@
 		6BAC7F3E1133DE2773D228F4 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				33D07FF1DF82189C2294EAA2 /* EntryDetailPlaceholderView.swift */,
-				3E8E99F771BAB7EAA093867E /* WorkLogView.swift */,
+				AB924753E08665DFD5A9972C /* Services */,
+				25FFD262FE629F7DEBD24674 /* Domain */,
+				105A42F4302F369B00314CAB /* View */,
+				2381689439C9A7894387D971 /* Presentation */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -226,9 +237,6 @@
 				29537D313A670F52C647838F /* App */,
 				97262DFE0FB4A3CB12479F3A /* Features */,
 				69DB10DEFCA4D63E9B936BEA /* Generic */,
-				25FFD262FE629F7DEBD24674 /* Models */,
-				AB924753E08665DFD5A9972C /* Services */,
-				2381689439C9A7894387D971 /* ViewModels */,
 			);
 			name = Sources;
 			path = Chronik/Sources;
@@ -299,9 +307,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-				};
+				LastUpgradeCheck = 2630;
 			};
 			buildConfigurationList = E769DE5A5AF19F52C53210C8 /* Build configuration list for PBXProject "Chronik" */;
 			developmentRegion = en;
@@ -446,6 +452,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -459,6 +466,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -543,6 +551,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -563,6 +572,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
