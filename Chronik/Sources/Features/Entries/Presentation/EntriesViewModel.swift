@@ -8,21 +8,21 @@
 import Foundation
 import Observation
 
-struct EntryRow: Identifiable, Equatable {
+public struct EntryRow: Identifiable, Equatable {
     let id: UUID
     let title: String
     let durationText: String?
     let notes: String?
 }
 
-struct DaySection: Identifiable, Equatable {
+public struct DaySection: Identifiable, Equatable {
     let id: Date
     let title: String
     var entries: [EntryRow]
 }
 
 @MainActor
-protocol EntriesViewModel: LoadableCollectionViewModel where State == DaySection {
+public protocol EntriesViewModel: LoadableCollectionViewModel where State == DaySection {
     var state: LoadableCollection<DaySection> { get }
     func load() async
     func delete(_ id: UUID) async 
@@ -33,7 +33,7 @@ protocol EntriesViewModel: LoadableCollectionViewModel where State == DaySection
 
 @MainActor
 @Observable
-final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, EntriesViewModel {
+public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, EntriesViewModel {
 
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>

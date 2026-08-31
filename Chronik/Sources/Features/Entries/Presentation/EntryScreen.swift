@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EntryScreen: Hashable {
+public enum EntryScreen: Hashable {
     case addEntry
     case entryDetail(UUID)
 }

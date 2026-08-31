@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-struct EntryFormState {
+public struct EntryFormState {
     var title: String = ""
     var day: Date
     var durationText: String = ""
@@ -11,7 +11,7 @@ struct EntryFormState {
 }
 
 @MainActor
-protocol EntryFormViewModel {
+public protocol EntryFormViewModel {
     var state: EntryFormState { get }
     var isEditing: Bool { get }
     var loadState: Loadable<Bool> { get }
@@ -29,7 +29,7 @@ protocol EntryFormViewModel {
 
 @MainActor
 @Observable
-final class EntryFormViewModelImpl: EntryFormViewModel {
+public final class EntryFormViewModelImpl: EntryFormViewModel {
     var state: EntryFormState
     private(set) var loadState: Loadable<Bool>
 

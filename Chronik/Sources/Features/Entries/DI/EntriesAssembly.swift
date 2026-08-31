@@ -1,7 +1,7 @@
 import Foundation
 import Swinject
 
-final class EntriesAssembly: Assembly {
+public final class EntriesAssembly: Assembly {
     func assemble(container: Container) {
         container.register(NavigatorImpl<EntryScreen>.self) { _ in
             NavigatorImpl<EntryScreen>()
