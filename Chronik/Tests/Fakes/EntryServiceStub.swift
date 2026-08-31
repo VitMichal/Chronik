@@ -15,11 +15,21 @@ final class EntryServiceStub: EntryService {
     var error: Error?
     private(set) var deleteCallCount = 0
     private(set) var addedEntries: [Entry] = []
+    private(set) var updatedEntries: [Entry] = []
 
     func add(_ entry: Entry) async throws {
         if let error { throw error }
         addedEntries.append(entry)
         entries.append(entry)
+    }
+
+    func update(_ entry: Entry) async throws {
+        if let error { throw error }
+        guard let index = entries.firstIndex(where: { $0.id == entry.id }) else {
+            throw StateError.general
+        }
+        updatedEntries.append(entry)
+        entries[index] = entry
     }
 
     func fetchAll() async throws -> [Entry] {

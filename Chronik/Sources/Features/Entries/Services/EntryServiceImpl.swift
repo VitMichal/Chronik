@@ -47,6 +47,18 @@ final class EntryServiceImpl: EntryService {
         try context.save()
     }
 
+    func update(_ entry: Entry) async throws {
+        let context = ModelContext(container)
+        guard let entity = try fetchEntity(by: entry.id, in: context) else {
+            throw StateError.general
+        }
+        entity.day = entry.day
+        entity.title = entry.title
+        entity.duration = entry.duration
+        entity.notes = entry.notes
+        try context.save()
+    }
+
     func fetchAll() async throws -> [Entry] {
         let context = ModelContext(container)
         let descriptor = FetchDescriptor<EntryEntity>(sortBy: [

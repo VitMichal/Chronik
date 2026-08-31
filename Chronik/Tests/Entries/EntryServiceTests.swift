@@ -85,6 +85,39 @@ final class EntryServiceTests: XCTestCase {
         XCTAssertEqual(entries.map(\.title), ["persisted"])
     }
 
+    func testUpdatePersistsChangedFieldsAndPreservesIdentity() async throws {
+        let sut = EntryServiceImpl(container: makeContainer())
+        let id = UUID()
+        let createdAt = makeDay(11, 8, hour: 10)
+        let original = makeEntry(id: id, day: makeDay(11, 8), createdAt: createdAt, title: "original")
+        let updated = Entry(
+            id: id,
+            day: makeDay(12, 8),
+            createdAt: createdAt,
+            title: "updated",
+            duration: Decimal(string: "2.5"),
+            notes: "new notes"
+        )
+        try await sut.add(original)
+
+        try await sut.update(updated)
+
+        let fetched = try await sut.fetch(by: id)
+        XCTAssertEqual(fetched, updated)
+    }
+
+    func testUpdateThrowsWhenEntryDoesNotExist() async throws {
+        let sut = EntryServiceImpl(container: makeContainer())
+        let entry = makeEntry(id: UUID(), day: makeDay(11, 8), createdAt: makeDay(11, 8), title: "missing")
+
+        do {
+            try await sut.update(entry)
+            XCTFail("Expected update to throw")
+        } catch {
+            XCTAssertTrue(error is StateError)
+        }
+    }
+
     func testDeleteRemovesEntry() async throws {
         let sut = EntryServiceImpl(container: makeContainer())
         let id = UUID()

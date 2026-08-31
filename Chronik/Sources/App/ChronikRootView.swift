@@ -23,17 +23,33 @@ struct ChronikRootView: View {
                 .navigationDestination(for: EntryScreen.self) { route in
                     switch route {
                     case .addEntry:
-                        AddEntryView(viewModel: AddEntryViewModelImpl(service: service, navigator: navigator))
+                        EntryFormDestination(service: service, navigator: navigator)
                     case .entryDetail(let id):
-                        EntryDetailView(
-                            viewModel: EntryDetailViewModelImpl(
-                                id: id,
-                                service: service,
-                                navigator: navigator
-                            )
-                        )
+                        EntryFormDestination(entryID: id, service: service, navigator: navigator)
                     }
                 }
         }
+    }
+}
+
+private struct EntryFormDestination: View {
+    @State private var viewModel: EntryFormViewModelImpl
+
+    init(
+        entryID: UUID? = nil,
+        service: EntryService,
+        navigator: any Navigator<EntryScreen>
+    ) {
+        _viewModel = State(
+            initialValue: EntryFormViewModelImpl(
+                entryID: entryID,
+                service: service,
+                navigator: navigator
+            )
+        )
+    }
+
+    var body: some View {
+        EntryFormView(viewModel: viewModel)
     }
 }

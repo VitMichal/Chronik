@@ -1,13 +1,6 @@
-//
-//  AddEntryView.swift
-//  Chronik
-//
-//  Created by Vít Míchal on 14.08.2026.
-//
-
 import SwiftUI
 
-struct AddEntryView<VM: AddEntryViewModel>: View {
+struct EntryFormView<VM: EntryFormViewModel>: View {
     private let viewModel: VM
 
     init(viewModel: VM) {
@@ -15,25 +8,21 @@ struct AddEntryView<VM: AddEntryViewModel>: View {
     }
 
     var body: some View {
-        Form {
-            Section {
-                TextField("Title", text: titleBinding)
-            }
-            Section {
-                DatePicker("Day", selection: dayBinding, displayedComponents: .date)
-            }
-            Section {
-                TextField("Duration (hours)", text: durationBinding)
-                    .keyboardType(.decimalPad)
-                TextField("Notes", text: notesBinding, axis: .vertical)
-            }
+        LoadableView(
+            viewModel.loadState,
+            retryAction: { Task { await viewModel.load() } }
+        ) { _ in
+            form
         }
-        .navigationTitle("New Entry")
+        .navigationTitle(viewModel.isEditing ? "Edit Entry" : "New Entry")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") {
-                    viewModel.cancel()
+            if viewModel.canDelete {
+                ToolbarItem(placement: .destructiveAction) {
+                    Button("Delete") {
+                        Task { await viewModel.delete() }
+                    }
+                    .foregroundStyle(Theme.pallete.errorColor)
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
@@ -43,9 +32,11 @@ struct AddEntryView<VM: AddEntryViewModel>: View {
                 .disabled(!viewModel.isSaveEnabled)
             }
         }
-        .onAppear { viewModel.reset() }
+        .onAppear {
+            if viewModel.isEditing { Task { await viewModel.load() } }
+        }
         .alert(
-            "Could not save Entry",
+            viewModel.state.errorTitle,
             isPresented: Binding(
                 get: { viewModel.state.errorMessage != nil },
                 set: { if !$0 { viewModel.dismissError() } }
@@ -54,6 +45,18 @@ struct AddEntryView<VM: AddEntryViewModel>: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(viewModel.state.errorMessage ?? "")
+        }
+    }
+
+    private var form: some View {
+        Form {
+            Section { TextField("Title", text: titleBinding) }
+            Section { DatePicker("Day", selection: dayBinding, displayedComponents: .date) }
+            Section {
+                TextField("Duration (hours)", text: durationBinding)
+                    .keyboardType(.decimalPad)
+                TextField("Notes", text: notesBinding, axis: .vertical)
+            }
         }
     }
 
