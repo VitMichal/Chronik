@@ -1,4 +1,8 @@
 name: Chronik
+packages:
+  Swinject:
+    url: https://github.com/Swinject/Swinject.git
+    from: 2.9.1
 options:
   bundleIdPrefix: com.example
   deploymentTarget:
@@ -15,6 +19,8 @@ targets:
       - path: Chronik/Resources
     resources:
       - path: Chronik/Resources
+    dependencies:
+      - package: Swinject
     settings:
       base:
         SWIFT_VERSION: "5.9"

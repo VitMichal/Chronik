@@ -41,6 +41,10 @@ final class EntryServiceImpl: EntryService {
         self.container = container
     }
 
+    convenience init() {
+        self.init(container: try! ModelContainer(for: EntryEntity.self))
+    }
+
     func add(_ entry: Entry) async throws {
         let context = ModelContext(container)
         context.insert(EntryEntity(entry: entry))

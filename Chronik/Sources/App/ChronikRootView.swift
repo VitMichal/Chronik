@@ -7,46 +7,41 @@
 
 import SwiftUI
 
-struct ChronikRootView: View {
+struct ChronikRootView<EntriesVM: EntriesViewModel>: View {
     @StateObject private var navigator: NavigatorImpl<EntryScreen>
-        let service: EntryService
-    
-    init(service: EntryService) {
-        self.service = service
-        let navigator = NavigatorImpl<EntryScreen>()
+    private let entriesViewModel: EntriesVM
+    private let makeEntryFormViewModel: (UUID?) -> EntryFormViewModelImpl
+
+    init(
+        navigator: NavigatorImpl<EntryScreen>,
+        entriesViewModel: EntriesVM,
+        makeEntryFormViewModel: @escaping (UUID?) -> EntryFormViewModelImpl
+    ) {
         _navigator = StateObject(wrappedValue: navigator)
+        self.entriesViewModel = entriesViewModel
+        self.makeEntryFormViewModel = makeEntryFormViewModel
     }
 
     var body: some View {
         NavigationStack(path: $navigator.navigationPath) {
-            EntriesView(viewModel: EntriesViewModelImpl(service: service, navigator: navigator))
+            EntriesView(viewModel: entriesViewModel)
                 .navigationDestination(for: EntryScreen.self) { route in
                     switch route {
                     case .addEntry:
-                        EntryFormDestination(service: service, navigator: navigator)
+                        EntryFormDestination(viewModel: makeEntryFormViewModel(nil))
                     case .entryDetail(let id):
-                        EntryFormDestination(entryID: id, service: service, navigator: navigator)
+                        EntryFormDestination(viewModel: makeEntryFormViewModel(id))
                     }
                 }
         }
     }
 }
 
-private struct EntryFormDestination: View {
-    @State private var viewModel: EntryFormViewModelImpl
+private struct EntryFormDestination<VM: EntryFormViewModel>: View {
+    @State private var viewModel: VM
 
-    init(
-        entryID: UUID? = nil,
-        service: EntryService,
-        navigator: any Navigator<EntryScreen>
-    ) {
-        _viewModel = State(
-            initialValue: EntryFormViewModelImpl(
-                entryID: entryID,
-                service: service,
-                navigator: navigator
-            )
-        )
+    init(viewModel: VM) {
+        _viewModel = State(initialValue: viewModel)
     }
 
     var body: some View {
