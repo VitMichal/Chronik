@@ -1,10 +1,10 @@
 import SwiftUI
 
 struct EntryFormView<VM: EntryFormViewModel>: View {
-    private let viewModel: VM
+    @State private var viewModel: VM
 
     init(viewModel: VM) {
-        self.viewModel = viewModel
+        _viewModel = State(initialValue: viewModel)
     }
 
     var body: some View {
