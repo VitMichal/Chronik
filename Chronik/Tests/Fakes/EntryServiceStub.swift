@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Generic
+@testable import Entries
 @testable import Chronik
 
 @MainActor

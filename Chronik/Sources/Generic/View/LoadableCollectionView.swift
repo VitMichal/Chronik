@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LoadableCollectionView<State, Content: View>: View {
+public struct LoadableCollectionView<State, Content: View>: View {
     let state: LoadableCollection<State>
     let retryAction: (() -> Void)?
     @ViewBuilder let content: ([State]) -> Content
 
-    init(
+    public init(
         _ state: LoadableCollection<State>,
         retryAction: (() -> Void)? = nil,
         @ViewBuilder content: @escaping ([State]) -> Content
@@ -22,7 +22,7 @@ struct LoadableCollectionView<State, Content: View>: View {
         self.content = content
     }
 
-    var body: some View {
+    public var body: some View {
         switch state {
             case .loading:
                 DefaultLoadingView()

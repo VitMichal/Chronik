@@ -1,4 +1,6 @@
 import SwiftUI
+import Generic
+import Entries
 
 @main
 struct ChronikApp: App {

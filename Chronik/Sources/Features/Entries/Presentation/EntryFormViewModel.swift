@@ -1,13 +1,23 @@
 import Foundation
 import Observation
+import Generic
 
 public struct EntryFormState {
-    var title: String = ""
-    var day: Date
-    var durationText: String = ""
-    var notes: String = ""
-    var errorMessage: String?
-    var errorTitle: String = "Could not save Entry"
+    public var title: String = ""
+    public var day: Date
+    public var durationText: String = ""
+    public var notes: String = ""
+    public var errorMessage: String?
+    public var errorTitle: String = "Could not save Entry"
+    
+    public init(title: String = "", day: Date, durationText: String = "", notes: String = "", errorMessage: String? = nil, errorTitle: String = "Could not save Entry") {
+        self.title = title
+        self.day = day
+        self.durationText = durationText
+        self.notes = notes
+        self.errorMessage = errorMessage
+        self.errorTitle = errorTitle
+    }
 }
 
 @MainActor
@@ -30,12 +40,12 @@ public protocol EntryFormViewModel {
 @MainActor
 @Observable
 public final class EntryFormViewModelImpl: EntryFormViewModel {
-    var state: EntryFormState
-    private(set) var loadState: Loadable<Bool>
+    public var state: EntryFormState
+    public private(set) var loadState: Loadable<Bool>
 
-    var isEditing: Bool { entryID != nil }
-    var canDelete: Bool { isEditing && loadState.getSuccess() != nil }
-    var isSaveEnabled: Bool {
+    public var isEditing: Bool { entryID != nil }
+    public var canDelete: Bool { isEditing && loadState.getSuccess() != nil }
+    public var isSaveEnabled: Bool {
         guard loadState.getSuccess() != nil, !trimmedTitle.isEmpty else { return false }
         return trimmedDuration.isEmpty || Decimal(string: trimmedDuration) != nil
     }
@@ -47,7 +57,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
     private let now: () -> Date
     private var originalEntry: Entry?
 
-    init(
+    public init(
         entryID: UUID? = nil,
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
@@ -63,23 +73,23 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         self.loadState = entryID == nil ? .success(true) : .loading
     }
 
-    func updateTitle(_ text: String) {
+    public func updateTitle(_ text: String) {
         state.title = text
     }
 
-    func updateDay(_ day: Date) {
+    public func updateDay(_ day: Date) {
         state.day = day
     }
 
-    func updateDuration(_ text: String) {
+    public func updateDuration(_ text: String) {
         state.durationText = text
     }
 
-    func updateNotes(_ text: String) {
+    public func updateNotes(_ text: String) {
         state.notes = text
     }
 
-    func load() async {
+    public func load() async {
         guard let entryID else { return }
         guard originalEntry == nil else { return }
         loadState = .loading
@@ -98,7 +108,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    func save() async {
+    public func save() async {
         guard isSaveEnabled else { return }
         do {
             let entry = makeEntry()
@@ -114,7 +124,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    func delete() async {
+    public func delete() async {
         guard let entryID, canDelete else { return }
         do {
             try await service.delete(by: entryID)
@@ -125,7 +135,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    func dismissError() {
+    public func dismissError() {
         state.errorMessage = nil
         state.errorTitle = "Could not save Entry"
     }

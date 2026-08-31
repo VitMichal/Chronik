@@ -8,15 +8,18 @@
 import SwiftUI
 import Observation
 
-class NavigatorImpl<Screen: Hashable>: Navigator, ObservableObject {
+public class NavigatorImpl<Screen: Hashable>: Navigator, ObservableObject {
         
-    @Published var navigationPath = NavigationPath()
+    @Published public var navigationPath = NavigationPath()
     
-    func navigateTo(_ route: Screen) {
+    public init() {}
+
+    
+    public func navigateTo(_ route: Screen) {
         navigationPath.append(route)
     }
 
-    func pop() {
+    public func pop() {
         navigationPath.removeLast()
     }
 }

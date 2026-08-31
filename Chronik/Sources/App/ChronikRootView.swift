@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Generic
+import Entries
 
 struct ChronikRootView<EntriesVM: EntriesViewModel>: View {
     @StateObject private var navigator: NavigatorImpl<EntryScreen>

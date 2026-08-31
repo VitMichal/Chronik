@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import Generic
 
 @Model
 final class EntryEntity {

@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum DurationFormatter {
-    static func string(from duration: Decimal) -> String {
+public enum DurationFormatter {
+    public static func string(from duration: Decimal) -> String {
         "\(duration) h"
     }
 }

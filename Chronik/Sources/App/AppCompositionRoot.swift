@@ -1,4 +1,6 @@
 import Swinject
+import Generic
+import Entries
 
 final class AppCompositionRoot {
     private let assembler: Assembler

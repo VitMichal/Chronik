@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Generic
 @testable import Chronik
 
-final class DateFormatterStub: Chronik.DateFormatter {
+final class DateFormatterStub: Generic.DateFormatter {
 
     var stringsByDate: [Date: String] = [:]
     var defaultString: String = ""

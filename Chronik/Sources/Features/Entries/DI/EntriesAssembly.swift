@@ -1,8 +1,11 @@
 import Foundation
 import Swinject
+import Generic
 
 public final class EntriesAssembly: Assembly {
-    func assemble(container: Container) {
+    public init() {}
+    
+    public func assemble(container: Container) {
         container.register(NavigatorImpl<EntryScreen>.self) { _ in
             NavigatorImpl<EntryScreen>()
         }.inObjectScope(.container)

@@ -6,6 +6,8 @@
 //
 
 import Chronik
+import Generic
+@testable import Entries
 
 class NavigatorStub<Screen: Hashable>: Navigator {
         

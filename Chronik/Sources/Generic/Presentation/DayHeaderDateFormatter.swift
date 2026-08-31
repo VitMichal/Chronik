@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct DayHeaderDateFormatter: DateFormatter {
+public struct DayHeaderDateFormatter: DateFormatter {
     private let formatter: Foundation.DateFormatter
 
-    init(
+    public init(
         calendar: Calendar = .current,
         locale: Locale = .current,
         timeZone: TimeZone = .current
@@ -23,7 +23,7 @@ struct DayHeaderDateFormatter: DateFormatter {
         self.formatter = formatter
     }
 
-    func string(from date: Date) -> String {
+    public func string(from date: Date) -> String {
         formatter.string(from: date)
     }
 }

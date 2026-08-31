@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import Generic
 
-struct EntriesView<VM: EntriesViewModel>: View {
+public struct EntriesView<VM: EntriesViewModel>: View {
     private let viewModel: VM
 
-    init(viewModel: VM) {
+    public init(viewModel: VM) {
         self.viewModel = viewModel
     }
 
-    var body: some View {
+    public var body: some View {
         LoadableCollectionView(
             viewModel.state,
             retryAction: { Task { await viewModel.load() } }

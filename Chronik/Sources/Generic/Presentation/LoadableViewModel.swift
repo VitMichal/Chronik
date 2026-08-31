@@ -85,6 +85,8 @@ public protocol LoadableCollectionViewModel {
 
 @MainActor
 @Observable
-public class LoadableCollectionViewModelImpl<State: Identifiable> {
+open class LoadableCollectionViewModelImpl<State: Identifiable> {
     public var state: LoadableCollection<State> = .loading
+    
+    public init() {}
 }

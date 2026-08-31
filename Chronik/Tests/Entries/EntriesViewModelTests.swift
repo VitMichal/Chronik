@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import Generic
+@testable import Entries
 @testable import Chronik
 
 @MainActor

@@ -7,18 +7,32 @@
 
 import Foundation
 import Observation
+import Generic
 
 public struct EntryRow: Identifiable, Equatable {
-    let id: UUID
+    public let id: UUID
     let title: String
     let durationText: String?
     let notes: String?
+    
+    public init(id: UUID, title: String, durationText: String?, notes: String?) {
+        self.id = id
+        self.title = title
+        self.durationText = durationText
+        self.notes = notes
+    }
 }
 
 public struct DaySection: Identifiable, Equatable {
-    let id: Date
+    public let id: Date
     let title: String
     var entries: [EntryRow]
+    
+    public init(id: Date, title: String, entries: [EntryRow]) {
+        self.id = id
+        self.title = title
+        self.entries = entries
+    }
 }
 
 @MainActor
@@ -38,13 +52,13 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>
     private let calendar: Calendar
-    private let dayFormatter: any DateFormatter
+    private let dayFormatter: any Generic.DateFormatter
 
-    init(
+    public init(
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
-        dayFormatter: any DateFormatter = DayHeaderDateFormatter()
+        dayFormatter: any Generic.DateFormatter = DayHeaderDateFormatter()
     ) {
         self.service = service
         self.navigator = navigator
@@ -52,11 +66,11 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
         self.dayFormatter = dayFormatter
     }
 
-    func load() async {
+    public func load() async {
         await refresh()
     }
 
-    func delete(_ id: UUID) async {
+    public func delete(_ id: UUID) async {
         do {
             try await service.delete(by: id)
             await refresh()
@@ -65,11 +79,11 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
         }
     }
 
-    func select(_ id: UUID) {
+    public func select(_ id: UUID) {
         navigator.navigateTo(.entryDetail(id))
     }
 
-    func openAddEntry() {
+    public func openAddEntry() {
         navigator.navigateTo(.addEntry)
     }
 
@@ -86,7 +100,7 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
     private static func group(
         _ entries: [Entry],
         calendar: Calendar,
-        dayFormatter: any DateFormatter
+        dayFormatter: any Generic.DateFormatter
     ) -> [DaySection] {
         let sorted = entries.sorted { lhs, rhs in
             let lhsDay = calendar.startOfDay(for: lhs.day)
