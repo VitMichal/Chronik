@@ -15,11 +15,13 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: Chronik/Sources
+      - path: Chronik/Sources/App
       - path: Chronik/Resources
     resources:
       - path: Chronik/Resources
     dependencies:
+      - target: Generic
+      - target: Entries
       - package: Swinject
     settings:
       base:
@@ -44,3 +46,33 @@ targets:
         GENERATE_INFOPLIST_FILE: true
     dependencies:
       - target: Chronik
+      - target: Generic
+      - target: Entries
+
+  Generic:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Chronik/Sources/Generic
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: true
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.Generic
+        DEFINES_MODULE: YES
+
+  Entries:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Chronik/Sources/Features/Entries
+      - path: Chronik/Sources/Features/Entries/DI
+    dependencies:
+      - target: Generic
+      - package: Swinject
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: true
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.Entries
+        DEFINES_MODULE: YES
