@@ -13,28 +13,28 @@ duration, optional notes) and browse the **Work log** grouped by **Day**.
 ## Build & test
 
 - Build/run: open `Chronik.xcodeproj` in Xcode 15+ and run the `Chronik` scheme on an iOS 17+ simulator.
-- Tests: `ChronikTests` unit-test target (XCTest). Run via `Cmd+U` on that scheme.
+- Tests: package schemes `Generic` and `Entries` (XCTest). Run `xcodebuild test -scheme Generic` from `Packages/Generic` (same for Entries). `ChronikTests` is an app-level stub. Packages are iOS-only — use `xcodebuild`, not `swift test`.
 - Regenerate the project after editing `project.yml`: `xcodegen generate` (requires `brew install xcodegen`).
-- No SPM packages are currently declared in `project.yml`; any new dependency must be declared there — xcodegen drops anything added directly to the `.xcodeproj`.
+- Local modules live under `Packages/` (`Generic`, `Entries`). The app consumes them via `packages: path:` in `project.yml`. Remote SPM deps used by the app must also be declared there — xcodegen drops anything added directly to the `.xcodeproj`.
 
 
 ## Project Structure
-Sources/
-├── App/                        # @main entry point
-│   ├── ChronikApp.swift
-│   └── ChronikRootView.swift
-├── Generic/                    # reusable infrastructure - could be used also in another projects
-│   ├── Extensions/             # extensions to common data structures, helpers and syntax sugars
-│   ├── Presentation/           # viewmodels abstraction, generic formatters
-│   ├── Theme/                  # color theme, UI styling
-│   └── View/                   # view abstractions used by other views in features
-├── Features/                   # here are features
-│   └── <FeatureName>/          # Entries feature
-│       ├── Domain/             # Feature domain entities
-│       ├── Services/           # Data access services
-│       ├── Presentation/       # Presentation logic classes, ViewModels and Formatters
-│       └── View/               # View implementation
-└── Shared/                     # Shared feature across multiple features
+Chronik/Sources/App/            # @main entry point, composition root
+Packages/Generic/               # reusable infrastructure (local SPM package)
+  Sources/Generic/
+    Extensions/                 # extensions to common data structures, helpers and syntax sugars
+    Presentation/               # viewmodels abstraction, generic formatters
+    Theme/                      # color theme, UI styling
+    View/                       # view abstractions used by other views in features
+  Tests/GenericTests/
+Packages/Entries/               # Entries feature (local SPM package, depends on Generic)
+  Sources/Entries/
+    Domain/                     # Feature domain entities
+    Services/                   # Data access services
+    Presentation/               # Presentation logic classes, ViewModels and Formatters
+    View/                       # View implementation
+    DI/                         # EntriesAssembly
+  Tests/EntriesTests/
 
 ## Architecture
 MVVM with a protocol-based service layer and code-driven navigation. Data flows
@@ -70,9 +70,10 @@ Views are made with SwiftUI.
 
 ### Testing
 
-- XCTest unit tests in `Chronik/Tests/`, one folder per feature.
-- Hand-written stubs in `Tests/Fakes/` conform to the service/navigator protocols (e.g. `NavigatorStub`) so view models are tested without persistence.
+- Each local package has its own XCTest target (`GenericTests`, `EntriesTests`).
+- Hand-written stubs live next to the tests that use them and conform to the service/navigator protocols (e.g. `NavigatorStub`) so view models are tested without persistence.
 - Test view models directly against their protocols/state; follow the existing `makeSut(...)` pattern with injectable fakes.
+- `ChronikTests` is reserved for app-level tests.
 
 ## Conventions
 
@@ -80,6 +81,7 @@ Views are made with SwiftUI.
 - View models produce pre-formatted display strings in `*State` structs; views render state, they do not format.
 - Use `@Observable` for view models, `@StateObject` for the navigator, and generic views over view-model protocols.
 - Use `Theme.pallete` / `Theme.dimensions` for all colors, padding, and corner radii — no hardcoded values.
+- New features are local SPM packages under `Packages/` with a `Package.swift`, consumed by the app via `project.yml`.
 - New screens get a `Hashable` route case, a feature VM folder, a feature view folder, and (when behavior is non-trivial) tests with fakes.
 - Use the domain vocabulary from `CONTEXT.md` (`Entry`, `Work log`, `Day`) in code, tests, and issues.
 - Public domain models and service protocols carry `public` access so the test target can import them; implementations and views stay `internal`.
@@ -87,8 +89,6 @@ Views are made with SwiftUI.
 ## Known limitations / future work (from NOTES.md)
 
 - No repository layer yet — view models talk to services directly.
-- Single app target; ideally each feature becomes its own target with a defined Swift API (protocols + entities).
-- No dependency-injection container yet — wiring is manual in the composition root.
 - The Entry feature is in progress: the Work log list (grouped by Day), the add-Entry form, and the Entry detail screen are tracked as GitHub issues (see below).
 
 ## Agent skills

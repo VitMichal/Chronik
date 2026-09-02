@@ -5,9 +5,7 @@
 //  Created by Vít Míchal on 24.07.2026.
 //
 
-import Chronik
 import Generic
-@testable import Entries
 
 class NavigatorStub<Screen: Hashable>: Navigator {
         

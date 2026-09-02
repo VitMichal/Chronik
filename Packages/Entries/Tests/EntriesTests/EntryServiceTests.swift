@@ -9,7 +9,6 @@ import XCTest
 import SwiftData
 import Generic
 @testable import Entries
-@testable import Chronik
 
 @MainActor
 final class EntryServiceTests: XCTestCase {

@@ -7,7 +7,6 @@
 
 import XCTest
 import Generic
-@testable import Chronik
 
 final class DateFormatterTests: XCTestCase {
 

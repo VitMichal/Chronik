@@ -7,7 +7,6 @@
 
 import Foundation
 import Generic
-@testable import Chronik
 
 final class DateFormatterStub: Generic.DateFormatter {
 
