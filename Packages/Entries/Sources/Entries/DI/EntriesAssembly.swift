@@ -6,9 +6,13 @@ public final class EntriesAssembly: Assembly {
     public init() {}
     
     public func assemble(container: Container) {
-        container.register(NavigatorImpl<EntryScreen>.self) { _ in
-            NavigatorImpl<EntryScreen>()
+        container.register(StackNavigatorImpl<EntryScreen>.self) { _ in
+            StackNavigatorImpl<EntryScreen>()
         }.inObjectScope(.container)
+
+        container.register((any Navigator<EntryScreen>).self) { resolver in
+            resolver.resolve(StackNavigatorImpl<EntryScreen>.self)!
+        }
 
         container.register(EntryService.self) { resolver in
             MainActor.assumeIsolated {
@@ -20,7 +24,7 @@ public final class EntriesAssembly: Assembly {
             MainActor.assumeIsolated {
                 EntriesViewModelImpl(
                     service: resolver.resolve(EntryService.self)!,
-                    navigator: resolver.resolve(NavigatorImpl<EntryScreen>.self)!
+                    navigator: resolver.resolve((any Navigator<EntryScreen>).self)!
                 )
             }
         }.inObjectScope(.container)
@@ -30,7 +34,7 @@ public final class EntriesAssembly: Assembly {
                 EntryFormViewModelImpl(
                     entryID: entryID,
                     service: resolver.resolve(EntryService.self)!,
-                    navigator: resolver.resolve(NavigatorImpl<EntryScreen>.self)!
+                    navigator: resolver.resolve((any Navigator<EntryScreen>).self)!
                 )
             }
         }
