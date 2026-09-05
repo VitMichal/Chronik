@@ -12,7 +12,7 @@ final class AppCompositionRoot {
         ])
     }
 
-    func makeRootView() -> ChronikRootView<EntriesViewModelImpl> {
-        assembler.resolver.resolve(ChronikRootView<EntriesViewModelImpl>.self)!
+    func makeRootView() -> RootView {
+        assembler.resolver.resolve(RootView.self)!
     }
 }

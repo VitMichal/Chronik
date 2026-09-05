@@ -9,13 +9,13 @@ import SwiftUI
 import Generic
 import Entries
 
-struct ChronikRootView<EntriesVM: EntriesViewModel>: View {
-    @StateObject private var navigator: NavigatorImpl<EntryScreen>
+struct ChronikRootView<EntriesVM: EntriesViewModel, Nav: StackNavigator>: View where Nav.Screen == EntryScreen {
+    @StateObject private var navigator: Nav
     private let entriesViewModel: EntriesVM
     private let makeEntryFormViewModel: (UUID?) -> EntryFormViewModelImpl
 
     init(
-        navigator: NavigatorImpl<EntryScreen>,
+        navigator: Nav,
         entriesViewModel: EntriesVM,
         makeEntryFormViewModel: @escaping (UUID?) -> EntryFormViewModelImpl
     ) {
