@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,7 @@
 		6BB34173BD851688902A8652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4CF931B489EFF797E4B07D /* Assets.xcassets */; };
 		7289DE4A2209248D0D7959BE /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */; };
 		A88D79B6490D0707ABD73576 /* Generic in Frameworks */ = {isa = PBXBuildFile; productRef = A0DF255F98E16225209E7DF8 /* Generic */; };
-		ABC481E0B3F1CDFF102040FB /* ChronikRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767AD034FA65627B8D4066C0 /* ChronikRootView.swift */; };
 		DE260A69B36D78F704379DF7 /* Entries in Frameworks */ = {isa = PBXBuildFile; productRef = 3572AFBED2E0F95801358B21 /* Entries */; };
-		E2D3EA0677AD6A79E8AEFD7F /* AppCompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C41FA41C781EF0995F96C8 /* AppCompositionRoot.swift */; };
 		E863BFFCE8929DC2A1FF0B26 /* Generic in Frameworks */ = {isa = PBXBuildFile; productRef = B6FE8980EB115A4741ED4A4A /* Generic */; };
 		F92702BC8740816C468D53C3 /* ChronikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */; };
 /* End PBXBuildFile section */
@@ -34,11 +32,9 @@
 /* Begin PBXFileReference section */
 		089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikApp.swift; sourceTree = "<group>"; };
 		25ECFD1CE688B7FC7BB80E02 /* Generic */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Generic; path = Packages/Generic; sourceTree = SOURCE_ROOT; };
-		28C41FA41C781EF0995F96C8 /* AppCompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCompositionRoot.swift; sourceTree = "<group>"; };
 		2DE9BF113416AB30DB83418B /* Entries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Entries; path = Packages/Entries; sourceTree = SOURCE_ROOT; };
 		34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
-		52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		767AD034FA65627B8D4066C0 /* ChronikRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikRootView.swift; sourceTree = "<group>"; };
+		52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChronikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9389601A155E4D9584856080 /* Chronik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD4CF931B489EFF797E4B07D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F115A4AB60505F7AAC79852F /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -120,9 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				F115A4AB60505F7AAC79852F /* AppAssembly.swift */,
-				28C41FA41C781EF0995F96C8 /* AppCompositionRoot.swift */,
 				089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */,
-				767AD034FA65627B8D4066C0 /* ChronikRootView.swift */,
 			);
 			name = App;
 			path = Chronik/Sources/App;
@@ -181,9 +175,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2660;
 			};
 			buildConfigurationList = E769DE5A5AF19F52C53210C8 /* Build configuration list for PBXProject "Chronik" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -191,14 +186,9 @@
 				en,
 			);
 			mainGroup = 35DEC82E0B7B022EDCCA412A;
-			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				B584C15D3EA2C141A46B29B1 /* XCRemoteSwiftPackageReference "Swinject" */,
-				CEF966BDC4DEB492C4D961FD /* XCLocalSwiftPackageReference "Packages/Entries" */,
-				EE1A651436DAF321175C90C5 /* XCLocalSwiftPackageReference "Packages/Generic" */,
 			);
-			preferredProjectObjectVersion = 77;
-			productRefGroup = 18786E733234153EBB4A414E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -226,9 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F727AC3B8C9F58578E69F1 /* AppAssembly.swift in Sources */,
-				E2D3EA0677AD6A79E8AEFD7F /* AppCompositionRoot.swift in Sources */,
 				F92702BC8740816C468D53C3 /* ChronikApp.swift in Sources */,
-				ABC481E0B3F1CDFF102040FB /* ChronikRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +299,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -324,6 +313,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -353,10 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 473264X5JK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,8 +355,6 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "iOS Development";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,6 +398,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -433,6 +419,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -488,17 +475,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		CEF966BDC4DEB492C4D961FD /* XCLocalSwiftPackageReference "Packages/Entries" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/Entries;
-		};
-		EE1A651436DAF321175C90C5 /* XCLocalSwiftPackageReference "Packages/Generic" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/Generic;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		B584C15D3EA2C141A46B29B1 /* XCRemoteSwiftPackageReference "Swinject" */ = {

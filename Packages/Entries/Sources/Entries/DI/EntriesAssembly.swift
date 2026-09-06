@@ -29,7 +29,7 @@ public final class EntriesAssembly: Assembly {
             }
         }.inObjectScope(.container)
 
-        container.register(EntryFormViewModel.self) { (resolver, entryID: UUID?) in
+        container.register(EntryFormViewModelImpl.self) { (resolver, entryID: UUID?) in
             MainActor.assumeIsolated {
                 EntryFormViewModelImpl(
                     entryID: entryID,

@@ -21,7 +21,7 @@ public struct EntryFormState {
 }
 
 @MainActor
-public protocol EntryFormViewModel {
+protocol EntryFormViewModel {
     var state: EntryFormState { get }
     var isEditing: Bool { get }
     var loadState: Loadable<Bool> { get }
@@ -39,13 +39,13 @@ public protocol EntryFormViewModel {
 
 @MainActor
 @Observable
-public final class EntryFormViewModelImpl: EntryFormViewModel {
-    public var state: EntryFormState
-    public private(set) var loadState: Loadable<Bool>
+final class EntryFormViewModelImpl: EntryFormViewModel {
+    var state: EntryFormState
+    private(set) var loadState: Loadable<Bool>
 
-    public var isEditing: Bool { entryID != nil }
-    public var canDelete: Bool { isEditing && loadState.getSuccess() != nil }
-    public var isSaveEnabled: Bool {
+    var isEditing: Bool { entryID != nil }
+    var canDelete: Bool { isEditing && loadState.getSuccess() != nil }
+    var isSaveEnabled: Bool {
         guard loadState.getSuccess() != nil, !trimmedTitle.isEmpty else { return false }
         return trimmedDuration.isEmpty || Decimal(string: trimmedDuration) != nil
     }
@@ -57,7 +57,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
     private let now: () -> Date
     private var originalEntry: Entry?
 
-    public init(
+    init(
         entryID: UUID? = nil,
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
@@ -73,23 +73,23 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         self.loadState = entryID == nil ? .success(true) : .loading
     }
 
-    public func updateTitle(_ text: String) {
+    func updateTitle(_ text: String) {
         state.title = text
     }
 
-    public func updateDay(_ day: Date) {
+    func updateDay(_ day: Date) {
         state.day = day
     }
 
-    public func updateDuration(_ text: String) {
+    func updateDuration(_ text: String) {
         state.durationText = text
     }
 
-    public func updateNotes(_ text: String) {
+    func updateNotes(_ text: String) {
         state.notes = text
     }
 
-    public func load() async {
+    func load() async {
         guard let entryID else { return }
         guard originalEntry == nil else { return }
         loadState = .loading
@@ -108,7 +108,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    public func save() async {
+    func save() async {
         guard isSaveEnabled else { return }
         do {
             let entry = makeEntry()
@@ -124,7 +124,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    public func delete() async {
+    func delete() async {
         guard let entryID, canDelete else { return }
         do {
             try await service.delete(by: entryID)
@@ -135,7 +135,7 @@ public final class EntryFormViewModelImpl: EntryFormViewModel {
         }
     }
 
-    public func dismissError() {
+    func dismissError() {
         state.errorMessage = nil
         state.errorTitle = "Could not save Entry"
     }

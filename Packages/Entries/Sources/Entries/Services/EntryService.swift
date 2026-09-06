@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-public protocol EntryService {
+protocol EntryService {
     func add(_ entry: Entry) async throws
     func update(_ entry: Entry) async throws
     func fetchAll() async throws -> [Entry]

@@ -47,14 +47,14 @@ public protocol EntriesViewModel: LoadableCollectionViewModel where State == Day
 
 @MainActor
 @Observable
-public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, EntriesViewModel {
+final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, EntriesViewModel {
 
     private let service: EntryService
     private let navigator: any Navigator<EntryScreen>
     private let calendar: Calendar
     private let dayFormatter: any Generic.DateFormatter
 
-    public init(
+    init(
         service: EntryService,
         navigator: any Navigator<EntryScreen>,
         calendar: Calendar = .current,
@@ -66,11 +66,11 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
         self.dayFormatter = dayFormatter
     }
 
-    public func load() async {
+    func load() async {
         await refresh()
     }
 
-    public func delete(_ id: UUID) async {
+    func delete(_ id: UUID) async {
         do {
             try await service.delete(by: id)
             await refresh()
@@ -79,11 +79,11 @@ public final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySect
         }
     }
 
-    public func select(_ id: UUID) {
+    func select(_ id: UUID) {
         navigator.navigateTo(.entryDetail(id))
     }
 
-    public func openAddEntry() {
+    func openAddEntry() {
         navigator.navigateTo(.addEntry)
     }
 

@@ -4,11 +4,18 @@ import Entries
 
 @main
 struct ChronikApp: App {
-    private let compositionRoot = AppCompositionRoot()
 
+    init() {
+        ApplicationScope.set(assemblies: [
+            GenericAssembly(),
+            AppAssembly(),
+            EntriesAssembly()
+        ])
+    }
+    
     var body: some Scene {
         WindowGroup {
-            compositionRoot.makeRootView()
+            EntriesLaunchView()
         }
     }
 }

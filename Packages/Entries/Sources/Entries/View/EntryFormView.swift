@@ -1,14 +1,14 @@
 import SwiftUI
 import Generic
 
-public struct EntryFormView<VM: EntryFormViewModel>: View {
+struct EntryFormView<VM: EntryFormViewModel>: View {
     @State private var viewModel: VM
 
-    public init(viewModel: VM) {
+    init(viewModel: VM) {
         _viewModel = State(initialValue: viewModel)
     }
 
-    public var body: some View {
+    var body: some View {
         LoadableView(
             viewModel.loadState,
             retryAction: { Task { await viewModel.load() } }

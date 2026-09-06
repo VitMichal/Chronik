@@ -7,8 +7,16 @@ let package = Package(
     products: [
         .library(name: "Generic", targets: ["Generic"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
+    ],
     targets: [
-        .target(name: "Generic"),
+        .target(
+            name: "Generic",
+            dependencies: [
+                .product(name: "Swinject", package: "Swinject"),
+            ]
+        ),
         .testTarget(name: "GenericTests", dependencies: ["Generic"]),
     ]
 )
