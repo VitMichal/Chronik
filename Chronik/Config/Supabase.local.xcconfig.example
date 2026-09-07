@@ -1,0 +1,14 @@
+// Copy to Supabase.local.xcconfig and fill in. That file is gitignored.
+
+// NOTE: `//` starts a comment in xcconfig, so a bare https:// URL is truncated
+// at the slashes. Two ways to write the URL — either works:
+//
+//   1. Omit the scheme (simplest). https:// is assumed.
+//        SUPABASE_URL = your-project.supabase.co
+//
+//   2. Escape the slashes with $() if you need a full URL, e.g. a self-hosted
+//      instance on http or a custom port.
+//        SUPABASE_URL = http:/$()/localhost:54321
+
+SUPABASE_URL = your-project.supabase.co
+SUPABASE_ANON_KEY = your-anon-key

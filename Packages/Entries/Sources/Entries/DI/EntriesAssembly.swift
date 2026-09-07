@@ -1,6 +1,7 @@
 import Foundation
 import Swinject
 import Generic
+import SupabaseCore
 
 public final class EntriesAssembly: Assembly {
     public init() {}
@@ -15,9 +16,9 @@ public final class EntriesAssembly: Assembly {
         }
 
         container.register(EntryService.self) { resolver in
-            MainActor.assumeIsolated {
-                EntryServiceImpl()
-            }
+            SupabaseEntryService(
+                provider: resolver.resolve((any SupabaseProvider).self)!
+            )
         }.inObjectScope(.container)
 
         container.register(EntriesViewModelImpl.self) { resolver in

@@ -7,11 +7,13 @@ packages:
     path: Packages/Generic
   Entries:
     path: Packages/Entries
+  SupabaseCore:
+    path: Packages/SupabaseCore
 options:
   bundleIdPrefix: com.example
   deploymentTarget:
     iOS: "17.0"
-  xcodeVersion: "15.0"
+  xcodeVersion: "16.3"
   minimumXcodeGenVersion: "2.38"
 
 targets:
@@ -23,9 +25,29 @@ targets:
       - path: Chronik/Resources
     resources:
       - path: Chronik/Resources
+    # Supabase credentials. Supabase.xcconfig is tracked and blank; it optionally
+    # includes the gitignored Supabase.local.xcconfig holding the real values.
+    configFiles:
+      Debug: Chronik/Config/Supabase.xcconfig
+      Release: Chronik/Config/Supabase.xcconfig
+    # A shared scheme, so `xcodebuild -scheme Chronik` keeps working after
+    # `xcodegen generate`. Without this the scheme is autocreated into xcuserdata
+    # and wiped on every regeneration.
+    scheme:
+      testTargets:
+        - ChronikTests
+    # A real Info.plist template, not INFOPLIST_KEY_* settings: that prefix only
+    # supports Xcode's documented key allowlist and silently drops custom keys.
+    # GENERATE_INFOPLIST_FILE still fills in everything else.
+    info:
+      path: Chronik/Info.plist
+      properties:
+        SupabaseURL: $(SUPABASE_URL)
+        SupabaseAnonKey: $(SUPABASE_ANON_KEY)
     dependencies:
       - package: Generic
       - package: Entries
+      - package: SupabaseCore
       - package: Swinject
     settings:
       base:
@@ -52,3 +74,4 @@ targets:
       - target: Chronik
       - package: Generic
       - package: Entries
+      - package: SupabaseCore

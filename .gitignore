@@ -61,3 +61,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# Supabase credentials — real values, never committed
+Chronik/Config/Supabase.local.xcconfig

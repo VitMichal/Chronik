@@ -1,6 +1,7 @@
 import SwiftUI
 import Generic
 import Entries
+import SupabaseCore
 
 @main
 struct ChronikApp: App {
@@ -9,6 +10,7 @@ struct ChronikApp: App {
         ApplicationScope.set(assemblies: [
             GenericAssembly(),
             AppAssembly(),
+            SupabaseCoreAssembly(),
             EntriesAssembly()
         ])
     }

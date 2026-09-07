@@ -1,0 +1,16 @@
+// Supabase credentials.
+//
+// This file is tracked and holds no secrets. Real values go in
+// Supabase.local.xcconfig, which is gitignored — copy the example alongside it:
+//
+//     cp Chronik/Config/Supabase.local.xcconfig.example \
+//        Chronik/Config/Supabase.local.xcconfig
+//
+// The blank defaults below mean a fresh clone builds without that file; the app
+// then traps at launch with instructions rather than failing obscurely.
+
+SUPABASE_URL = 
+SUPABASE_ANON_KEY = 
+
+// Optional include: absent file is not an error.
+#include? "Supabase.local.xcconfig"

@@ -26,8 +26,8 @@ public struct LoadableCollectionView<State, Content: View>: View {
         switch state {
             case .loading:
                 DefaultLoadingView()
-            case .error:
-            DefaultErrorView(retryAction: retryAction)
+            case .error(let error):
+                DefaultErrorView(error: error, retryAction: retryAction)
             case .success(let loadedCollection):
                 if loadedCollection.isEmpty {
                     DefaultEmptyView()

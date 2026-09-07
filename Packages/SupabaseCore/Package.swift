@@ -2,30 +2,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "Entries",
+    name: "SupabaseCore",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "Entries", targets: ["Entries"]),
+        .library(name: "SupabaseCore", targets: ["SupabaseCore"]),
     ],
     dependencies: [
         .package(path: "../Generic"),
-        .package(path: "../SupabaseCore"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.9.1"),
+        // Only the `Supabase` product: it deliberately does not re-export
+        // PostgrestMacros, so swift-syntax stays out of the build.
+        .package(url: "https://github.com/supabase/supabase-swift.git", from: "2.55.0"),
     ],
     targets: [
         .target(
-            name: "Entries",
+            name: "SupabaseCore",
             dependencies: [
                 .product(name: "Generic", package: "Generic"),
-                .product(name: "SupabaseCore", package: "SupabaseCore"),
                 .product(name: "Swinject", package: "Swinject"),
-            ]
-        ),
-        .testTarget(
-            name: "EntriesTests",
-            dependencies: [
-                "Entries",
-                .product(name: "Generic", package: "Generic"),
+                .product(name: "Supabase", package: "supabase-swift"),
             ]
         ),
     ]

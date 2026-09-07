@@ -22,7 +22,7 @@ struct DefaultErrorView: View {
                 .font(.largeTitle)
                 .foregroundStyle(.red)
             
-            Text("Something went wrong")
+            Text(error?.localizedDescription ?? "Something went wrong")
                 .font(.headline)
             
             if let retryAction {
