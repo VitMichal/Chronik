@@ -15,22 +15,25 @@ struct DefaultErrorView: View {
         self.error = error
         self.retryAction = retryAction
     }
-    
+
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: Theme.dimensions.padding.l) {
             Image(systemName: "exclamationmark.triangle")
                 .font(.largeTitle)
-                .foregroundStyle(.red)
-            
+                .foregroundStyle(Theme.pallete.errorColor)
+
             Text(error?.localizedDescription ?? "Something went wrong")
-                .font(.headline)
-            
+                .font(Theme.typography.entryTitle)
+                .foregroundStyle(Theme.pallete.onBackgroundColor)
+                .multilineTextAlignment(.center)
+
             if let retryAction {
                 Button("Retry", action: retryAction)
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(PrimaryPillButtonStyle())
             }
         }
-        .padding()
+        .padding(Theme.dimensions.padding.l)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Theme.pallete.backgroundColor)
     }
 }

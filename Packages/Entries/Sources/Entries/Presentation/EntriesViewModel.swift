@@ -12,13 +12,13 @@ import Generic
 public struct EntryRow: Identifiable, Equatable {
     public let id: UUID
     let title: String
-    let durationText: String?
+    let duration: DurationDisplay?
     let notes: String?
     
-    public init(id: UUID, title: String, durationText: String?, notes: String?) {
+    public init(id: UUID, title: String, duration: DurationDisplay?, notes: String?) {
         self.id = id
         self.title = title
-        self.durationText = durationText
+        self.duration = duration
         self.notes = notes
     }
 }
@@ -116,7 +116,7 @@ final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, E
             let row = EntryRow(
                 id: entry.id,
                 title: entry.title,
-                durationText: entry.duration.map(DurationFormatter.string(from:)),
+                duration: entry.duration.map(DurationFormatter.display(from:)),
                 notes: entry.notes
             )
             if var last = sections.last, last.id == day {

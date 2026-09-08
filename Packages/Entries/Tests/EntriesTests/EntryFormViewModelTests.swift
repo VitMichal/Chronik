@@ -90,6 +90,17 @@ final class EntryFormViewModelTests: XCTestCase {
         XCTAssertNil(navigator.lastScreen)
     }
 
+    func testBackPopsWithoutSaving() {
+        let sut = makeSut()
+        sut.updateTitle("Unsaved title")
+
+        sut.back()
+
+        XCTAssertEqual(navigator.popCount, 1)
+        XCTAssertTrue(service.addedEntries.isEmpty)
+        XCTAssertTrue(service.updatedEntries.isEmpty)
+    }
+
     func testSaveFailureShowsErrorAndDoesNotPop() async {
         let sut = makeSut()
         sut.updateTitle("Stand-up")

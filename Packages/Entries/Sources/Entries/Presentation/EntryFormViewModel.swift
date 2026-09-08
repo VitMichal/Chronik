@@ -34,6 +34,7 @@ protocol EntryFormViewModel {
     func load() async
     func save() async
     func delete() async
+    func back()
     func dismissError()
 }
 
@@ -133,6 +134,10 @@ final class EntryFormViewModelImpl: EntryFormViewModel {
             state.errorTitle = "Could not delete Entry"
             state.errorMessage = error.localizedDescription
         }
+    }
+
+    func back() {
+        navigator.pop()
     }
 
     func dismissError() {

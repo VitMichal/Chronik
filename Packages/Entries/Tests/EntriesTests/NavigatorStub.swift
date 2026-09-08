@@ -10,6 +10,7 @@ import Generic
 class NavigatorStub<Screen: Hashable>: Navigator {
         
     var lastScreen: Screen?
+    private(set) var popCount = 0
     
     func navigateTo(_ route: Screen) {
         lastScreen = route
@@ -17,5 +18,6 @@ class NavigatorStub<Screen: Hashable>: Navigator {
 
     func pop() {
         lastScreen = nil
+        popCount += 1
     }
 }
