@@ -20,6 +20,8 @@ public class StackNavigatorImpl<Screen: Hashable>: StackNavigator {
     }
 
     public func pop() {
-        navigationPath.removeLast()
+        if !navigationPath.isEmpty {
+            navigationPath.removeLast()
+        }
     }
 }
