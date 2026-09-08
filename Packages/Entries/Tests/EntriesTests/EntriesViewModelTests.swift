@@ -200,4 +200,33 @@ final class EntriesViewModelTests: XCTestCase {
 
         XCTAssertEqual(navigator.lastScreen, .addEntry)
     }
+
+    // MARK: - Refresh coalescing
+
+    /// The Work log is refreshed both by the list's `onAppear` and by the
+    /// navigation stack returning to its root; on iOS a pop fires both.
+    func test_load_whileAlreadyLoading_fetchesOnce() async {
+        let sut = makeSut()
+        service.holdsFetchAll = true
+
+        let first = Task { await sut.load() }
+        while service.fetchAllCallCount == 0 { await Task.yield() }
+
+        await sut.load()
+        XCTAssertEqual(service.fetchAllCallCount, 1)
+
+        service.releaseFetchAll()
+        await first.value
+        XCTAssertEqual(service.fetchAllCallCount, 1)
+    }
+
+    /// The guard must not latch: a later refresh still reaches the service.
+    func test_load_afterPreviousLoadFinished_fetchesAgain() async {
+        let sut = makeSut()
+
+        await sut.load()
+        await sut.load()
+
+        XCTAssertEqual(service.fetchAllCallCount, 2)
+    }
 }

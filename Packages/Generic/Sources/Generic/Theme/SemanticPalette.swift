@@ -53,7 +53,9 @@ public struct SemanticPaletteImpl: SemanticPalette {
 }
 
 extension Color {
+    /// Looks the color up in the app bundle's asset catalog. SwiftUI's own
+    /// initializer resolves on every platform, unlike `UIColor(named:)`.
     public static func named(_ name: String) -> Color {
-        Color(UIColor(named: name)!)
+        Color(name, bundle: .main)
     }
 }

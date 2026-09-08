@@ -19,7 +19,7 @@ public struct EntriesLaunchView: View {
     
     public var body: some View {
         NavigationStack(path: $navigator.navigationPath) {
-            EntriesView(viewModel: ApplicationScope.resolve(EntriesViewModelImpl.self))
+            EntriesView(viewModel: workLogViewModel)
                 .navigationDestination(for: EntryScreen.self) { route in
                     switch route {
                     case .addEntry:
@@ -39,5 +39,20 @@ public struct EntriesLaunchView: View {
                     }
                 }
         }
+        // `EntriesView` loads the Work log from its own `onAppear`. That fires
+        // again on iOS when a pushed screen is popped, but not on macOS, so a
+        // saved Entry never reached the list there. Refreshing whenever the
+        // stack returns to its root is deterministic on both platforms.
+        .onChange(of: navigator.navigationPath.isEmpty) { _, isAtRoot in
+            if isAtRoot {
+                Task { await workLogViewModel.load() }
+            }
+        }
+    }
+
+    /// Container-scoped, so this resolves to the very instance `EntriesView`
+    /// is rendering — not a second view model with its own state.
+    private var workLogViewModel: EntriesViewModelImpl {
+        ApplicationScope.resolve(EntriesViewModelImpl.self)
     }
 }

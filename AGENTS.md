@@ -6,7 +6,7 @@
 work. Users record what they did as an **Entry** (date, title, optional
 duration, optional notes) and browse the **Work log** grouped by **Day**.
 
-- Swift 5.9 language mode, SwiftUI, iOS 17.0+ deployment target, **Xcode 16.3+**
+- Swift 5.9 language mode, SwiftUI, iOS 17.0+ / macOS 14.0+ deployment targets, **Xcode 16.3+**
   (supabase-swift needs a Swift 6.1 toolchain; the project's own sources stay on
   the 5.9 language mode)
 - Persistence via **Supabase** (Postgres + RLS, anonymous auth). The app is
@@ -31,8 +31,20 @@ duration, optional notes) and browse the **Work log** grouped by **Day**.
   `Chronik/Config/Supabase.xcconfig` is tracked, blank, and optionally includes the
   local file, so a fresh clone builds without it. No environment variables are
   involved, and launching Xcode from the Dock works.
-- Build/run: open `Chronik.xcodeproj` in Xcode 16.3+ and run the `Chronik` scheme on an iOS 17+ simulator.
-- Tests: package schemes `Generic` and `Entries` (XCTest). Run `xcodebuild test -scheme Generic` from `Packages/Generic` (same for Entries). `ChronikTests` is an app-level stub. Packages are iOS-only — use `xcodebuild`, not `swift test`. Tests need no credentials and no network.
+- Build/run: open `Chronik.xcodeproj` in Xcode 16.3+ and run the `Chronik` scheme
+  on an iOS 17+ simulator, or the `ChronikMac` scheme on macOS 14+.
+- **Two app targets, one source set.** `Chronik` (iOS) and `ChronikMac` (macOS)
+  build the same `Chronik/Sources/App` and the same packages, and share a bundle
+  identifier and `Info.plist`. Anything platform-specific belongs behind a helper
+  in `Generic/View` (see `PlatformModifiers.swift`, `InteractivePopGesture.swift`),
+  not behind `#if` scattered through feature views.
+- The Mac app is sandboxed; `Chronik/Chronik.entitlements` grants
+  `network.client`, without which every Supabase request fails at the socket.
+- Tests: package schemes `Generic` and `Entries` (XCTest). The packages build for
+  iOS and macOS, so `swift test` from `Packages/Generic` (same for Entries) is the
+  quickest route — no simulator. `xcodebuild test -scheme Generic -destination
+  'platform=iOS Simulator,name=…'` still works when you need the iOS slice.
+  `ChronikTests` is an app-level stub. Tests need no credentials and no network.
 - Database schema lives in `supabase/migrations/`. Anonymous sign-in must be enabled in the Supabase dashboard.
 - Regenerate the project after editing `project.yml`: `xcodegen generate` (requires `brew install xcodegen`).
 - Local modules live under `Packages/` (`Generic`, `Entries`, `SupabaseCore`). The app consumes them via `packages: path:` in `project.yml`. Remote SPM deps used by the app must also be declared there — xcodegen drops anything added directly to the `.xcodeproj`.
@@ -88,6 +100,10 @@ Views are made with SwiftUI.
 - View models trigger navigation by calling `navigator.navigateTo(Screen.route)` where `Screen` is a `Hashable` enum.
 - `NavigatorImpl<Screen>` wraps a SwiftUI `NavigationPath` (`@Published`) and is bound in the `NavigationStack`.
 - Routing (mapping screen enum → destination view) lives in the `navigationDestination(for:)` switch in the root navigation view.
+- **Do not rely on a screen's `onAppear` to refresh after returning to it.** iOS
+  re-fires the `NavigationStack` root's `onAppear` on a pop; macOS does not, so a
+  saved Entry never reached the Work log there. `EntriesLaunchView` refreshes off
+  the navigation path emptying instead, which fires on both platforms.
 
 ### State handling
 - Async data is exposed as `Loadable<State>` / `LoadableCollection<State>` (`loading` / `success` / `error`).
