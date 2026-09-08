@@ -9,16 +9,24 @@
 /* Begin PBXBuildFile section */
 		00EEC562B2DE74DB0A6A9EB9 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = BCFDC5734FEB8F050D5605EF /* Swinject */; };
 		09BE3B9A22FB9E5D143EA61C /* SupabaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 321464AEA1EB34DF5D4891B7 /* SupabaseCore */; };
+		15BA6E7E0BD70438885D7FF6 /* Entries in Frameworks */ = {isa = PBXBuildFile; productRef = 8234692FBDF95115544F5CDB /* Entries */; };
 		19B5F9F2A08CF2504F97E965 /* Entries in Frameworks */ = {isa = PBXBuildFile; productRef = BDAFDD5A022C7DD76E22207B /* Entries */; };
 		1E35ED83936A189CCC41F808 /* ChronikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783D2C54A0121F9A47B741D /* ChronikTests.swift */; };
 		22F727AC3B8C9F58578E69F1 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F115A4AB60505F7AAC79852F /* AppAssembly.swift */; };
+		60A20096C98B9E156E691D7C /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */; };
+		63D0A418766157817F205758 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = AD6ECBF9D51A7F1AF163DFD0 /* Swinject */; };
+		67D60C5F3C5AA8449517AB57 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F115A4AB60505F7AAC79852F /* AppAssembly.swift */; };
 		6BB34173BD851688902A8652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4CF931B489EFF797E4B07D /* Assets.xcassets */; };
 		7289DE4A2209248D0D7959BE /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34F9AB85BADCB489A4B6AAE0 /* ColorAssets.xcassets */; };
+		797D6EE9E82C21D29B8C1C2E /* ChronikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */; };
+		8CBA71E5F350210CEB4DF62F /* Generic in Frameworks */ = {isa = PBXBuildFile; productRef = A38BF8DE81417123246A133C /* Generic */; };
+		9F6E4E02E0AEDE13BB25BFB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4CF931B489EFF797E4B07D /* Assets.xcassets */; };
 		A88D79B6490D0707ABD73576 /* Generic in Frameworks */ = {isa = PBXBuildFile; productRef = A0DF255F98E16225209E7DF8 /* Generic */; };
 		B13CAECCEF429694981B1F0E /* SupabaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = A0E36F3DC99C8B5481027D6F /* SupabaseCore */; };
 		DE260A69B36D78F704379DF7 /* Entries in Frameworks */ = {isa = PBXBuildFile; productRef = 3572AFBED2E0F95801358B21 /* Entries */; };
 		E863BFFCE8929DC2A1FF0B26 /* Generic in Frameworks */ = {isa = PBXBuildFile; productRef = B6FE8980EB115A4741ED4A4A /* Generic */; };
 		F92702BC8740816C468D53C3 /* ChronikApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */; };
+		FBB8156BA14B591E69F75D1F /* SupabaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5725D2C77F8B477CB806E320 /* SupabaseCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		089E7265FAEE3D62A4650BA7 /* ChronikApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronikApp.swift; sourceTree = "<group>"; };
+		133E7BE17B3CE4A15B63CC1E /* Chronik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1514B2CE5919FC7AA29626AD /* Supabase.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Supabase.xcconfig; sourceTree = "<group>"; };
 		25ECFD1CE688B7FC7BB80E02 /* Generic */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Generic; path = Packages/Generic; sourceTree = SOURCE_ROOT; };
 		2DE9BF113416AB30DB83418B /* Entries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Entries; path = Packages/Entries; sourceTree = SOURCE_ROOT; };
@@ -46,6 +55,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4D4CA44A0F9778D25E1AF60E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CBA71E5F350210CEB4DF62F /* Generic in Frameworks */,
+				15BA6E7E0BD70438885D7FF6 /* Entries in Frameworks */,
+				FBB8156BA14B591E69F75D1F /* SupabaseCore in Frameworks */,
+				63D0A418766157817F205758 /* Swinject in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		603C68FBE59BD97DA5C587E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9389601A155E4D9584856080 /* Chronik.app */,
+				133E7BE17B3CE4A15B63CC1E /* Chronik.app */,
 				52FB95033D4F2DB3CCD81AFE /* ChronikTests.xctest */,
 			);
 			name = Products;
@@ -142,6 +163,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6AF47F64C197A8DC8824D35A /* ChronikMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11590D7D146F91FA13A15D56 /* Build configuration list for PBXNativeTarget "ChronikMac" */;
+			buildPhases = (
+				093BAC8139580C7741567763 /* Sources */,
+				0D1D1D26326FD31E069F9EF0 /* Resources */,
+				4D4CA44A0F9778D25E1AF60E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChronikMac;
+			packageProductDependencies = (
+				A38BF8DE81417123246A133C /* Generic */,
+				8234692FBDF95115544F5CDB /* Entries */,
+				5725D2C77F8B477CB806E320 /* SupabaseCore */,
+				AD6ECBF9D51A7F1AF163DFD0 /* Swinject */,
+			);
+			productName = ChronikMac;
+			productReference = 133E7BE17B3CE4A15B63CC1E /* Chronik.app */;
+			productType = "com.apple.product-type.application";
+		};
 		716773ED0AB3C598A43D8070 /* Chronik */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 708EE59F0C0792EB3536DD5C /* Build configuration list for PBXNativeTarget "Chronik" */;
@@ -212,12 +256,22 @@
 			projectRoot = "";
 			targets = (
 				716773ED0AB3C598A43D8070 /* Chronik */,
+				6AF47F64C197A8DC8824D35A /* ChronikMac */,
 				E3A55FBF1CC833FCFD78DD96 /* ChronikTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D1D1D26326FD31E069F9EF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F6E4E02E0AEDE13BB25BFB4 /* Assets.xcassets in Resources */,
+				60A20096C98B9E156E691D7C /* ColorAssets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4EA33671FFB6A18BC7782EFC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +284,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		093BAC8139580C7741567763 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67D60C5F3C5AA8449517AB57 /* AppAssembly.swift in Sources */,
+				797D6EE9E82C21D29B8C1C2E /* ChronikApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		820F6935BB624C10A1D86E8C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +346,29 @@
 			};
 			name = Release;
 		};
+		2C7CE45A5D0E7F840F905D52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1514B2CE5919FC7AA29626AD /* Supabase.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chronik/Chronik.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Chronik/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
+				PRODUCT_NAME = Chronik;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
 		3112DFC0DFC31D2A1E795745 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,10 +415,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -380,6 +466,29 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95EB5F20C952D2747CB4CD9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1514B2CE5919FC7AA29626AD /* Supabase.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Chronik/Chronik.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Chronik/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Chronik;
+				PRODUCT_NAME = Chronik;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
 			};
 			name = Debug;
 		};
@@ -435,11 +544,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -467,6 +576,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		11590D7D146F91FA13A15D56 /* Build configuration list for PBXNativeTarget "ChronikMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95EB5F20C952D2747CB4CD9C /* Debug */,
+				2C7CE45A5D0E7F840F905D52 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		59F0BE12C06221CC389D381F /* Build configuration list for PBXNativeTarget "ChronikTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -516,6 +634,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Entries;
 		};
+		5725D2C77F8B477CB806E320 /* SupabaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SupabaseCore;
+		};
+		8234692FBDF95115544F5CDB /* Entries */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Entries;
+		};
 		A0DF255F98E16225209E7DF8 /* Generic */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Generic;
@@ -523,6 +649,15 @@
 		A0E36F3DC99C8B5481027D6F /* SupabaseCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SupabaseCore;
+		};
+		A38BF8DE81417123246A133C /* Generic */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Generic;
+		};
+		AD6ECBF9D51A7F1AF163DFD0 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B584C15D3EA2C141A46B29B1 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 		B6FE8980EB115A4741ED4A4A /* Generic */ = {
 			isa = XCSwiftPackageProductDependency;

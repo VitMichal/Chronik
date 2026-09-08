@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+
 /// Restores the swipe-from-the-left-edge back gesture on screens that hide the
 /// navigation bar. UIKit disables the gesture along with the bar, so the screens
 /// that draw their own header have to hand it back.
@@ -48,3 +50,12 @@ extension View {
         )
     }
 }
+
+#else
+
+extension View {
+    /// A no-op on macOS: there is no edge-swipe back gesture to hand back.
+    public func interactivePopGestureEnabled() -> some View { self }
+}
+
+#endif

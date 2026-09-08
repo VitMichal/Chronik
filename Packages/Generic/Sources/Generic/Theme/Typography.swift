@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+private typealias PlatformFont = UIFont
+#elseif canImport(AppKit)
+import AppKit
+private typealias PlatformFont = NSFont
+#endif
+
 /// The type scale: a geometric sans, light-to-semibold, following the
 /// reference design.
 ///
 /// Each role names its faces in order of preference. Poppins is the closest
 /// match to the reference and is used when the files are bundled; Avenir Next
-/// ships with iOS and carries the same geometric-humanist feel, so it is the
-/// working default. The system font is the last resort.
+/// ships with both iOS and macOS and carries the same geometric-humanist feel,
+/// so it is the working default. The system font is the last resort.
 public struct Typography {
 
     private enum Face {
@@ -55,7 +63,7 @@ public struct Typography {
         _ weight: Font.Weight,
         _ style: Font.TextStyle
     ) -> Font {
-        for name in candidates where UIFont(name: name, size: size) != nil {
+        for name in candidates where PlatformFont(name: name, size: size) != nil {
             return .custom(name, size: size, relativeTo: style)
         }
         return .system(size: size, weight: weight)

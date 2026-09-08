@@ -19,5 +19,10 @@ struct ChronikApp: App {
         WindowGroup {
             EntriesLaunchView()
         }
+        #if os(macOS)
+        // The Work log is laid out for a phone-width column; without a default
+        // the window opens far wider than the content is designed for.
+        .defaultSize(width: 480, height: 820)
+        #endif
     }
 }

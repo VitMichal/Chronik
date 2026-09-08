@@ -5,7 +5,7 @@
 //  Created by Vít Míchal on 23.07.2026.
 //
 
-import UIKit
+import CoreGraphics
 
 public struct DimensionSize {
     public let s: CGFloat

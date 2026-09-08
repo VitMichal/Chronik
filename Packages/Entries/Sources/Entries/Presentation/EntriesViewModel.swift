@@ -53,6 +53,7 @@ final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, E
     private let navigator: any Navigator<EntryScreen>
     private let calendar: Calendar
     private let dayFormatter: any Generic.DateFormatter
+    private var isRefreshing = false
 
     init(
         service: EntryService,
@@ -89,6 +90,14 @@ final class EntriesViewModelImpl: LoadableCollectionViewModelImpl<DaySection>, E
 
     @MainActor
     private func refresh() async {
+        // The Work log is refreshed from two places — the list's `onAppear` and
+        // the navigation stack returning to its root — and on iOS a pop fires
+        // both. One fetch is enough; the second would only re-request the same
+        // rows the first is already in flight for.
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        defer { isRefreshing = false }
+
         do {
             let entries = try await service.fetchAll()
             state = .success(Self.group(entries, calendar: calendar, dayFormatter: dayFormatter))

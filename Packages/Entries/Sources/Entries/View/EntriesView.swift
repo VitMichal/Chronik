@@ -29,7 +29,7 @@ public struct EntriesView<VM: EntriesViewModel>: View {
         }
         .background(Theme.pallete.backgroundColor)
         .navigationTitle("Work log")
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationChromeHidden()
         .onAppear { Task { await viewModel.load() } }
     }
 

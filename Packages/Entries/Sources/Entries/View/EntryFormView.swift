@@ -30,7 +30,7 @@ struct EntryFormView<VM: EntryFormViewModel>: View {
             }
         }
         .background(Theme.pallete.backgroundColor)
-        .toolbar(.hidden, for: .navigationBar)
+        .navigationChromeHidden()
         .interactivePopGestureEnabled()
         .onAppear {
             if viewModel.isEditing { Task { await viewModel.load() } }
@@ -183,7 +183,7 @@ struct EntryFormView<VM: EntryFormViewModel>: View {
                 )
                 .font(Theme.typography.formTitle)
                 .foregroundStyle(Theme.pallete.primaryColorVariant)
-                .keyboardType(.decimalPad)
+                .decimalKeyboard()
 
                 Text("hours")
                     .font(Theme.typography.button)

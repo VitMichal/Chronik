@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 public struct Theme {
     public static let pallete: SemanticPalette = SemanticPaletteImpl(

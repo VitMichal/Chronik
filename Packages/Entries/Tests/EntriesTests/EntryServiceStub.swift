@@ -15,6 +15,11 @@ final class EntryServiceStub: EntryService {
     var entries: [Entry] = []
     var error: Error?
     private(set) var deleteCallCount = 0
+    private(set) var fetchAllCallCount = 0
+    /// When set, `fetchAll()` parks until `releaseFetchAll()` is called, so a
+    /// test can observe a second call arriving while the first is in flight.
+    var holdsFetchAll = false
+    private var fetchAllContinuation: CheckedContinuation<Void, Never>?
     private(set) var addedEntries: [Entry] = []
     private(set) var updatedEntries: [Entry] = []
 
@@ -34,8 +39,17 @@ final class EntryServiceStub: EntryService {
     }
 
     func fetchAll() async throws -> [Entry] {
+        fetchAllCallCount += 1
+        if holdsFetchAll {
+            await withCheckedContinuation { fetchAllContinuation = $0 }
+        }
         if let error { throw error }
         return entries
+    }
+
+    func releaseFetchAll() {
+        fetchAllContinuation?.resume()
+        fetchAllContinuation = nil
     }
 
     func fetch(by id: UUID) async throws -> Entry? {
